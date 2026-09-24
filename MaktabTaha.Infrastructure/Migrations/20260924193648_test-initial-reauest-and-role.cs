@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MaktabTaha.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class addedrole : Migration
+    public partial class testinitialreauestandrole : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -109,7 +109,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Area",
+                name: "Areas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -118,11 +118,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Area", x => x.Id);
+                    table.PrimaryKey("PK_Areas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Bank",
+                name: "Banks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -131,11 +131,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bank", x => x.Id);
+                    table.PrimaryKey("PK_Banks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CaseType",
+                name: "CaseTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -144,7 +144,20 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CaseType", x => x.Id);
+                    table.PrimaryKey("PK_CaseTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CharityMainRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CharityMainRoles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -191,7 +204,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmploymentStatus",
+                name: "EmploymantStatus",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -200,11 +213,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmploymentStatus", x => x.Id);
+                    table.PrimaryKey("PK_EmploymantStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GoodWorkType",
+                name: "GoodWorkTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -213,7 +226,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GoodWorkType", x => x.Id);
+                    table.PrimaryKey("PK_GoodWorkTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -243,7 +256,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Job",
+                name: "Jobs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -252,11 +265,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Job", x => x.Id);
+                    table.PrimaryKey("PK_Jobs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Nationalty",
+                name: "Nationalties",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -265,7 +278,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Nationalty", x => x.Id);
+                    table.PrimaryKey("PK_Nationalties", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -308,7 +321,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Province",
+                name: "Provinces",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -317,11 +330,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Province", x => x.Id);
+                    table.PrimaryKey("PK_Provinces", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Religon",
+                name: "Relations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -330,11 +343,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Religon", x => x.Id);
+                    table.PrimaryKey("PK_Relations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RequestType",
+                name: "Religons",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -343,7 +356,20 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RequestType", x => x.Id);
+                    table.PrimaryKey("PK_Religons", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RequestTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RequestTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -365,7 +391,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Skill",
+                name: "Skills",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -374,11 +400,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Skill", x => x.Id);
+                    table.PrimaryKey("PK_Skills", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UnemploymentReason",
+                name: "UnemploymentReasons",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -387,11 +413,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UnemploymentReason", x => x.Id);
+                    table.PrimaryKey("PK_UnemploymentReasons", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "HouseHeadStatusDesc",
+                name: "HouseHeadStatusDescs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -401,9 +427,9 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HouseHeadStatusDesc", x => x.Id);
+                    table.PrimaryKey("PK_HouseHeadStatusDescs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HouseHeadStatusDesc_HouseHeadStatus_HouseHeadStatusId",
+                        name: "FK_HouseHeadStatusDescs_HouseHeadStatus_HouseHeadStatusId",
                         column: x => x.HouseHeadStatusId,
                         principalTable: "HouseHeadStatus",
                         principalColumn: "Id",
@@ -411,7 +437,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
+                name: "Cities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -421,17 +447,16 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.PrimaryKey("PK_Cities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_City_Province_ProvinceId",
+                        name: "FK_Cities_Provinces_ProvinceId",
                         column: x => x.ProvinceId,
-                        principalTable: "Province",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Provinces",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "InitialRequest",
+                name: "InitialRequests",
                 columns: table => new
                 {
                     RequestNumber = table.Column<int>(type: "int", nullable: false)
@@ -460,53 +485,53 @@ namespace MaktabTaha.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InitialRequest", x => x.RequestNumber);
+                    table.PrimaryKey("PK_InitialRequests", x => x.RequestNumber);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_Area_AreaId",
+                        name: "FK_InitialRequests_Areas_AreaId",
                         column: x => x.AreaId,
-                        principalTable: "Area",
+                        principalTable: "Areas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_City_CityId",
+                        name: "FK_InitialRequests_Cities_CityId",
                         column: x => x.CityId,
-                        principalTable: "City",
+                        principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_Donor_RefererId",
+                        name: "FK_InitialRequests_Donor_RefererId",
                         column: x => x.RefererId,
                         principalTable: "Donor",
                         principalColumn: "DonorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_HouseHeadStatusDesc_HouseHeadStatusId",
+                        name: "FK_InitialRequests_HouseHeadStatusDescs_HouseHeadStatusId",
                         column: x => x.HouseHeadStatusId,
-                        principalTable: "HouseHeadStatusDesc",
+                        principalTable: "HouseHeadStatusDescs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_Nationalty_NationaltyId",
+                        name: "FK_InitialRequests_Nationalties_NationaltyId",
                         column: x => x.NationaltyId,
-                        principalTable: "Nationalty",
+                        principalTable: "Nationalties",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_Province_ProvinceId",
+                        name: "FK_InitialRequests_Provinces_ProvinceId",
                         column: x => x.ProvinceId,
-                        principalTable: "Province",
+                        principalTable: "Provinces",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_Religon_ReligonId",
+                        name: "FK_InitialRequests_Religons_ReligonId",
                         column: x => x.ReligonId,
-                        principalTable: "Religon",
+                        principalTable: "Religons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InitialRequest_RequestType_RequestTypeId",
+                        name: "FK_InitialRequests_RequestTypes_RequestTypeId",
                         column: x => x.RequestTypeId,
-                        principalTable: "RequestType",
+                        principalTable: "RequestTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -540,53 +565,53 @@ namespace MaktabTaha.Infrastructure.Migrations
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_City_ProvinceId",
-                table: "City",
+                name: "IX_Cities_ProvinceId",
+                table: "Cities",
                 column: "ProvinceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HouseHeadStatusDesc_HouseHeadStatusId",
-                table: "HouseHeadStatusDesc",
+                name: "IX_HouseHeadStatusDescs_HouseHeadStatusId",
+                table: "HouseHeadStatusDescs",
                 column: "HouseHeadStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_AreaId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_AreaId",
+                table: "InitialRequests",
                 column: "AreaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_CityId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_CityId",
+                table: "InitialRequests",
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_HouseHeadStatusId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_HouseHeadStatusId",
+                table: "InitialRequests",
                 column: "HouseHeadStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_NationaltyId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_NationaltyId",
+                table: "InitialRequests",
                 column: "NationaltyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_ProvinceId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_ProvinceId",
+                table: "InitialRequests",
                 column: "ProvinceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_RefererId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_RefererId",
+                table: "InitialRequests",
                 column: "RefererId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_ReligonId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_ReligonId",
+                table: "InitialRequests",
                 column: "ReligonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InitialRequest_RequestTypeId",
-                table: "InitialRequest",
+                name: "IX_InitialRequests_RequestTypeId",
+                table: "InitialRequests",
                 column: "RequestTypeId");
 
             migrationBuilder.AddForeignKey(
@@ -618,10 +643,13 @@ namespace MaktabTaha.Infrastructure.Migrations
                 table: "Users");
 
             migrationBuilder.DropTable(
-                name: "Bank");
+                name: "Banks");
 
             migrationBuilder.DropTable(
-                name: "CaseType");
+                name: "CaseTypes");
+
+            migrationBuilder.DropTable(
+                name: "CharityMainRoles");
 
             migrationBuilder.DropTable(
                 name: "EducationLevel");
@@ -630,19 +658,19 @@ namespace MaktabTaha.Infrastructure.Migrations
                 name: "EducationStatus");
 
             migrationBuilder.DropTable(
-                name: "EmploymentStatus");
+                name: "EmploymantStatus");
 
             migrationBuilder.DropTable(
-                name: "GoodWorkType");
+                name: "GoodWorkTypes");
 
             migrationBuilder.DropTable(
                 name: "HousingStatus");
 
             migrationBuilder.DropTable(
-                name: "InitialRequest");
+                name: "InitialRequests");
 
             migrationBuilder.DropTable(
-                name: "Job");
+                name: "Jobs");
 
             migrationBuilder.DropTable(
                 name: "OrphanStatus");
@@ -654,37 +682,40 @@ namespace MaktabTaha.Infrastructure.Migrations
                 name: "PrivatenessStatus");
 
             migrationBuilder.DropTable(
+                name: "Relations");
+
+            migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Skill");
+                name: "Skills");
 
             migrationBuilder.DropTable(
-                name: "UnemploymentReason");
+                name: "UnemploymentReasons");
 
             migrationBuilder.DropTable(
-                name: "Area");
+                name: "Areas");
 
             migrationBuilder.DropTable(
-                name: "City");
+                name: "Cities");
 
             migrationBuilder.DropTable(
                 name: "Donor");
 
             migrationBuilder.DropTable(
-                name: "HouseHeadStatusDesc");
+                name: "HouseHeadStatusDescs");
 
             migrationBuilder.DropTable(
-                name: "Nationalty");
+                name: "Nationalties");
 
             migrationBuilder.DropTable(
-                name: "Religon");
+                name: "Religons");
 
             migrationBuilder.DropTable(
-                name: "RequestType");
+                name: "RequestTypes");
 
             migrationBuilder.DropTable(
-                name: "Province");
+                name: "Provinces");
 
             migrationBuilder.DropTable(
                 name: "HouseHeadStatus");

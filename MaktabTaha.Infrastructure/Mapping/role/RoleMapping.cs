@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MaktabTaha.Infrastructure.Mapping.Role
+namespace MaktabTaha.Infrastructure.Mapping.role
 {
-    public class RoleMapping : IEntityTypeConfiguration<Domain.Entites.Role>
+    public class RoleMapping : IEntityTypeConfiguration<Role>
     {
         public void Configure(
-            EntityTypeBuilder<Domain.Entites.Role> builder)
+            EntityTypeBuilder<Role> builder)
         {
             builder.ToTable("Roles");
 

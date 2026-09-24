@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaktabTaha.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260924190433_addedrole")]
-    partial class addedrole
+    [Migration("20260924193648_test-initial-reauest-and-role")]
+    partial class testinitialreauestandrole
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Area");
+                    b.ToTable("Areas");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Bank", b =>
@@ -56,7 +56,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Bank");
+                    b.ToTable("Banks");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.CaseType", b =>
@@ -73,7 +73,24 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CaseType");
+                    b.ToTable("CaseTypes");
+                });
+
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.CharityMainRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CharityMainRoles");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.City", b =>
@@ -95,7 +112,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasIndex("ProvinceId");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.EducationLevel", b =>
@@ -146,7 +163,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmploymentStatus");
+                    b.ToTable("EmploymantStatus");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.GoodWorkType", b =>
@@ -163,7 +180,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GoodWorkType");
+                    b.ToTable("GoodWorkTypes");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.HouseHeadStatus", b =>
@@ -202,7 +219,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasIndex("HouseHeadStatusId");
 
-                    b.ToTable("HouseHeadStatusDesc");
+                    b.ToTable("HouseHeadStatusDescs");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.HousingStatus", b =>
@@ -236,7 +253,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Job");
+                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Nationalty", b =>
@@ -253,7 +270,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Nationalty");
+                    b.ToTable("Nationalties");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.OrphanStatus", b =>
@@ -321,7 +338,24 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Province");
+                    b.ToTable("Provinces");
+                });
+
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Relation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Relations");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Religon", b =>
@@ -338,7 +372,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Religon");
+                    b.ToTable("Religons");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.RequestType", b =>
@@ -355,7 +389,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestType");
+                    b.ToTable("RequestTypes");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Skill", b =>
@@ -372,7 +406,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Skill");
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.UnemploymentReason", b =>
@@ -389,7 +423,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UnemploymentReason");
+                    b.ToTable("UnemploymentReasons");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.Donor", b =>
@@ -520,7 +554,7 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasIndex("RequestTypeId");
 
-                    b.ToTable("InitialRequest");
+                    b.ToTable("InitialRequests");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.Permission", b =>
@@ -693,7 +727,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.Province", "province")
                         .WithMany("cities")
                         .HasForeignKey("ProvinceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("province");
