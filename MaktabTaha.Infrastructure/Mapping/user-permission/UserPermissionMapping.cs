@@ -8,6 +8,8 @@ namespace MaktabTaha.Infrastructure.Mapping.user_permission
     {
         public void Configure(EntityTypeBuilder<UserPermission> builder)
         {
+            builder.ToTable("UserPermissions");
+
             builder.HasKey(x => new { x.UserId, x.PermissionId });
 
             builder.HasOne(x => x.User)

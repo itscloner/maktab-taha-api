@@ -19,6 +19,7 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IPermissionRepository, PermissionRepository>();
             services.AddTransient<IUserPermissionRepository, UserPermissionRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IInitialRequestRepository, InitialRequestRepository>();
 
             

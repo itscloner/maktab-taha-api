@@ -8,6 +8,9 @@ using MaktabTaha.Application.Features.initialRequest.Command.Update;
 using MaktabTaha.Application.Features.permission.Command.Create;
 using MaktabTaha.Application.Features.permission.Command.Delete;
 using MaktabTaha.Application.Features.permission.Command.Update;
+using MaktabTaha.Application.Features.role.Command.create;
+using MaktabTaha.Application.Features.role.Command.delete;
+using MaktabTaha.Application.Features.role.Command.update;
 using MaktabTaha.Application.Features.user.Command.Create;
 using MaktabTaha.Application.Features.user.Command.delete;
 using MaktabTaha.Application.Features.user.Command.update;
@@ -53,6 +56,12 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<InitialRequest, InitialRequestListDTO>();
             CreateMap<InitialRequest, GetUserDTO>();
             CreateMap<ApproveInitialRequestCommand, InitialRequest>();
+
+            //ROLE
+            CreateMap<CreateRoleCommand, Role>();
+            CreateMap<UpdateRoleCommand, Role>();
+            CreateMap<DeleteRoleCommand, Role>();
+
 
 
         }
