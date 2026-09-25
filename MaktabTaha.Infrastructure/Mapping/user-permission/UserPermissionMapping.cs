@@ -4,21 +4,21 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MaktabTaha.Infrastructure.Mapping.user_permission
 {
-    class UserPermissionMapping : IEntityTypeConfiguration<UserPermission>
+    class UserPermissionMapping : IEntityTypeConfiguration<RolePermission>
     {
-        public void Configure(EntityTypeBuilder<UserPermission> builder)
+        public void Configure(EntityTypeBuilder<RolePermission> builder)
         {
-            builder.ToTable("UserPermissions");
+            builder.ToTable("RolePermissions");
 
-            builder.HasKey(x => new { x.UserId, x.PermissionId });
+            builder.HasKey(x => new { x.RoleId, x.PermissionId });
 
-            builder.HasOne(x => x.User)
-                .WithMany(x => x.UserPermissions)
-                .HasForeignKey(x => x.UserId)
+            builder.HasOne(x => x.Role)
+                .WithMany(x => x.RolePermissions)
+                .HasForeignKey(x => x.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.Permission)
-                .WithMany(x => x.UserPermissions)
+                .WithMany(x => x.RolePermissions)
                 .HasForeignKey(x => x.PermissionId)
                 .OnDelete(DeleteBehavior.Cascade);
 

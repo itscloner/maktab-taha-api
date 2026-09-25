@@ -2,11 +2,11 @@
 
 namespace MaktabTaha.Domain.Entites
 {
-    public class UserPermission
+    public class RolePermission
     {
-        public int UserId { get; set; }
+        public int RoleId { get; set; }
         public int PermissionId { get; set; }
-        public User User { get; set; }
+        public Role Role { get; set; }
         public Permission Permission { get; set; }
 
     }

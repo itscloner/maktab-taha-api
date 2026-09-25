@@ -21,7 +21,7 @@ namespace MaktabTaha.Application.Features.user.Query.List
         {
             var operation = new OperationResult<List<UserListDTO>>();
 
-            var users = await _repository.List();
+            var users = await _repository.GetAllList();
             var result = _mapper.Map<List<UserListDTO>>(users);
 
             return operation.Succedded(result);

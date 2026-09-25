@@ -12,7 +12,5 @@ namespace MaktabTaha.Domain.Entites
         public DateTime? LastEntry { get; set; } = DateTime.Now;
         public int RoleId { get; set; }
         public Role Role { get; set; }
-
-        public ICollection<UserPermission> UserPermissions { get; set; } = new List<UserPermission>();
     }
 }

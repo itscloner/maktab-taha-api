@@ -11,12 +11,13 @@ using MaktabTaha.Application.Features.permission.Command.Update;
 using MaktabTaha.Application.Features.role.Command.create;
 using MaktabTaha.Application.Features.role.Command.delete;
 using MaktabTaha.Application.Features.role.Command.update;
+using MaktabTaha.Application.Features.role_permission.Command.Create;
 using MaktabTaha.Application.Features.user.Command.Create;
 using MaktabTaha.Application.Features.user.Command.delete;
 using MaktabTaha.Application.Features.user.Command.update;
-using MaktabTaha.Application.Features.user_permission.Command.Create;
-using MaktabTaha.Application.Features.user_permission.Command.Delete;
-using MaktabTaha.Application.Features.user_permission.Command.Update;
+using MaktabTaha.Application.Features.role_permission.Command.Create;
+using MaktabTaha.Application.Features.role_permission.Command.Delete;
+using MaktabTaha.Application.Features.role_permission.Command.Update;
 using MaktabTaha.Domain.Common;
 using MaktabTaha.Domain.Entites;
 using System.Security;
@@ -31,7 +32,6 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<CreateUserCommand, User>();
             CreateMap<UpdateUserCommand, User>()
                 .ForMember(dest => dest.UserName, opt => opt.Ignore())
-                .ForMember(dest => dest.UserPermissions, opt => opt.Ignore())
                 .ForMember(dest => dest.LastEntry, opt => opt.Ignore())
                 .ForMember(dest => dest.PasswordHash, opt => opt.Ignore());
             CreateMap<DeleteUserCommand, User>();
@@ -45,10 +45,10 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdatePermissionCommand, Permission>();
             CreateMap<DeletePermissionCommand, Permission>();
 
-            //USER PERMISSION
-            CreateMap<CreateUserPermissionCommand, UserPermission>();
-            CreateMap<UpdateUserPermissionCommand, UserPermission>();
-            CreateMap<DeleteUserPermissionCommand, UserPermission>();
+            //ROLE PERMISSION
+            CreateMap<CreateRolePermissionCommand, RolePermission>();
+            CreateMap<UpdateRolePermissionCommand, RolePermission>();
+            CreateMap<DeleteRolePermissionCommand, RolePermission>();
 
             //InitialRequest
             CreateMap<CreateInitialRequestCommand, InitialRequest>();

@@ -12,7 +12,7 @@ namespace MaktabTaha.Domain.Entites
         public int SortOrder { get; set; }
         public Permission? Parent { get; set; }
         public ICollection<Permission> Children { get; set; } = new List<Permission>();
-        public ICollection<UserPermission> UserPermissions { get; set; } = new List<UserPermission>();
+        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
 
 
     }

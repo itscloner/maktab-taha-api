@@ -7,6 +7,7 @@ namespace MaktabTaha.Domain.Entites
         public string Title { get; set; }
         public bool IsSystemAdmin { get; set; }
         public ICollection<User> Users { get; set; } = new List<User>();
+        public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
 
     }
 }
