@@ -11,6 +11,7 @@ namespace MaktabTaha.Application.Features.user.Command.update
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Mobile { get; set; }
+        public int RoleId { get; set; }
 
     }
 }

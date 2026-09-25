@@ -15,7 +15,7 @@ namespace MaktabTaha.Application.Features.initialRequest.Command.Approve
         public int RequestNumber { get; set; }
         public string Status { get; set; }
         public string StatusReason { get; set; }
-        public DateTime ApproveDate { get; set; }
+        public DateTime ApproveDate { get; set; } = DateTime.Now;
         public string OfficerDescription { get; set; }
         public IFormFile Attachment { get; set; }
     }
