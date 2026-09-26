@@ -14,5 +14,6 @@ namespace MaktabTaha.Application.Features.user.Command.Create
         public string Mobile { get; set; }
         public int RoleId { get; set; }
 
+
     }
 }

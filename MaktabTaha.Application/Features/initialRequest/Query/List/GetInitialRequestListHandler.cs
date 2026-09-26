@@ -26,7 +26,7 @@ namespace MaktabTaha.Application.Features.initialRequest.Query.List
         {
             var operation = new OperationResult<List<InitialRequestListDTO>>();
 
-            var initialRequests = await _repository.List();
+            var initialRequests = await _repository.ListWithoutIsDeleted();
             var mappedData = _mapper.Map<List<InitialRequestListDTO>>(initialRequests);
             return operation.Succedded(mappedData);
         }

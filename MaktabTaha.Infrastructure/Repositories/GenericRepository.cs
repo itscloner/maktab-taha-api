@@ -43,6 +43,10 @@ namespace MaktabTaha.Infrastructure.Repositories
             return await _context.Set<T>()
                 .Where(x => EF.Property<bool>(x, "IsDeleted") == false)
                 .ToListAsync();
+        }       
+        public async Task<List<T>> ListWithoutIsDeleted()
+        {
+            return await _context.Set<T>().ToListAsync();
         }
 
         public async Task SaveChanges()

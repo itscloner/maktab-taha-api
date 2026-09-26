@@ -9,6 +9,7 @@ namespace MaktabTaha.Application.Interfaces
         Task<T> Delete(T entity);
         Task<T> GetBy(TKey id);
         Task<List<T>> List();
+        Task<List<T>> ListWithoutIsDeleted();
         Task SaveChanges();
         Task<bool> Exists(Expression<Func<T, bool>> expression);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> expression);
