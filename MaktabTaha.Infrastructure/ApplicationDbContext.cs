@@ -35,6 +35,13 @@ namespace MaktabTaha.Infrastructure
         public DbSet<Skill> Skill { get; set; }
         public DbSet<UnemploymentReason> UnemploymentReason { get; set; }
         public DbSet<RequestStatus> RequestStatus { get; set; }
+
+        public DbSet<DependancyStatus> DependancyStatus {  get; set; }
+        public DbSet<MaritalStatus> MaritalStatus { get; set; }
+        public DbSet<CaseLevel> CaseLevel { get; set; }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Attachment> Attachment { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
