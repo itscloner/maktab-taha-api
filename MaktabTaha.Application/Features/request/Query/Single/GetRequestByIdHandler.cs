@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.Features.request.Query.Single
 {
-    public class GetRequestByIdHandler : IRequestHandler<GetRequestByIdCommand, OperationResult<SingleRequestDTO>>
+    public class GetRequestByIdHandler : IRequestHandler<GetRequestByIdCommand, OperationResult<RequestSingleDTO>>
     {
         private readonly IRequestRepository _repository;
         private readonly IMapper _mapper;
@@ -22,13 +22,13 @@ namespace MaktabTaha.Application.Features.request.Query.Single
             _mapper = mapper;
         }
 
-        public async Task<OperationResult<SingleRequestDTO>> Handle(GetRequestByIdCommand request, CancellationToken cancellationToken)
+        public async Task<OperationResult<RequestSingleDTO>> Handle(GetRequestByIdCommand request, CancellationToken cancellationToken)
         {
-            var operation = new OperationResult<SingleRequestDTO>();
+            var operation = new OperationResult<RequestSingleDTO>();
 
             var initialRequest = await _repository.GetBy(request.Id);
             if (initialRequest == null) return operation.Failure("درخواست اولیه یافت نشد");
-            var mappedData = _mapper.Map<SingleRequestDTO>(initialRequest);
+            var mappedData = _mapper.Map<RequestSingleDTO>(initialRequest);
             return operation.Succedded(mappedData);
         }
     }

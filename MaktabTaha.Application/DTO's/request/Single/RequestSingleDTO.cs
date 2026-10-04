@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.DTO_s.Requests.Single
 {
-    public class SingleRequestDTO
+    public class RequestSingleDTO
     {
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }

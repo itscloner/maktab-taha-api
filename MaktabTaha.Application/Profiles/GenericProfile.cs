@@ -20,6 +20,10 @@ using MaktabTaha.Application.Features.user.Command.update;
 using MaktabTaha.Domain.Common;
 using MaktabTaha.Domain.Entites;
 using MaktabTaha.Application.DTO_s.Requests.Single;
+using MaktabTaha.Application.Features.person.Command.Create;
+using MaktabTaha.Application.Features.person.Command.Update;
+using MaktabTaha.Application.DTO_s.person.List;
+using MaktabTaha.Application.DTO_s.person.Single;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -37,7 +41,7 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<AuthViewModel, User>();
 
             CreateMap<User, UserListDTO>();
-            CreateMap<User, SingleUserDTO>();
+            CreateMap<User, UserSingleDTO>();
 
             //PERMISSION
             CreateMap<CreatePermissionCommand, Permission>();
@@ -49,7 +53,7 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdateRolePermissionCommand, RolePermission>();
             CreateMap<DeleteRolePermissionCommand, RolePermission>();
 
-            //InitialRequest
+            //Request
             CreateMap<CreateRequestCommand, Request>();
             CreateMap<UpdateRequestCommand, Request>();
             CreateMap<Request, RequestListDTO>()
@@ -113,7 +117,7 @@ namespace MaktabTaha.Application.Profiles
                         $"{src.ClientFirstName} {src.ClientLastName}".Trim()
                     )
                 ); 
-            CreateMap<Request, SingleRequestDTO>();
+            CreateMap<Request, RequestSingleDTO>();
             CreateMap<ApproveRequestCommand, Request>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.Attachment, opt => opt.Ignore());
@@ -123,7 +127,11 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdateRoleCommand, Role>();
             CreateMap<DeleteRoleCommand, Role>();
 
-
+            // Person
+            CreateMap<CreatePersonCommand, Person>();
+            CreateMap<UpdatePersonCommand,  Person>();
+            CreateMap<Person, PersonListDTO>();
+            CreateMap<Person, PersonSingleDTO>();
             
         }
     }

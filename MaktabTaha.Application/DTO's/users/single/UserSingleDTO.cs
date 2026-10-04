@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.DTO_s.users.single
 {
-    public class SingleUserDTO
+    public class UserSingleDTO
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

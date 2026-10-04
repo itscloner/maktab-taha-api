@@ -4,7 +4,7 @@ using MediatR;
 
 namespace MaktabTaha.Application.Features.user.Query.single
 {
-    public class GetUserByIdCommand : IRequest<OperationResult<SingleUserDTO>>
+    public class GetUserByIdCommand : IRequest<OperationResult<UserSingleDTO>>
     {
         public int Id { get; set; }
     }

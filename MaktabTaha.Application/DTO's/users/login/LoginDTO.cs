@@ -2,7 +2,7 @@
 
 namespace MaktabTaha.Application.DTO_s.users.login
 {
-    public class LoginDTO : SingleUserDTO
+    public class LoginDTO : UserSingleDTO
     {
         public string Token { get; set; }
     }

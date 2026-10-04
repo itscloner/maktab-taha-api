@@ -53,6 +53,7 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<ISkillRepository, SkillRepository>();
             services.AddTransient<IUnemploymentReasonRepository, UnemploymentReasonRepository>();
             services.AddTransient<IRequestStatusRepository, RequestStatusRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
 
 
 

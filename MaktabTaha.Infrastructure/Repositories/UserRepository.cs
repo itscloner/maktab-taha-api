@@ -98,7 +98,7 @@ namespace MaktabTaha.Infrastructure.Repositories
             }).ToList();
         }
 
-        public async Task<SingleUserDTO?> GetUser(int id)
+        public async Task<UserSingleDTO?> GetUser(int id)
         {
             var user = await _context.User
                 .AsNoTracking()
@@ -110,7 +110,7 @@ namespace MaktabTaha.Infrastructure.Repositories
             if (user == null)
                 return null;
 
-            return new SingleUserDTO
+            return new UserSingleDTO
             {
                 Id = user.Id,
                 FirstName = user.FirstName,

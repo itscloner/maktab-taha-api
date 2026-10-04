@@ -6,7 +6,7 @@ using MediatR;
 
 namespace MaktabTaha.Application.Features.user.Query.single
 {
-    class GetUserByIdHandler : IRequestHandler<GetUserByIdCommand, OperationResult<SingleUserDTO>>
+    class GetUserByIdHandler : IRequestHandler<GetUserByIdCommand, OperationResult<UserSingleDTO>>
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
@@ -18,9 +18,9 @@ namespace MaktabTaha.Application.Features.user.Query.single
         }
 
 
-        public async Task<OperationResult<SingleUserDTO>> Handle(GetUserByIdCommand request, CancellationToken cancellationToken)
+        public async Task<OperationResult<UserSingleDTO>> Handle(GetUserByIdCommand request, CancellationToken cancellationToken)
         {
-            var operation = new OperationResult<SingleUserDTO>();
+            var operation = new OperationResult<UserSingleDTO>();
             var user = await _repository.GetBy(request.Id);
 
             if(user == null)
@@ -28,7 +28,7 @@ namespace MaktabTaha.Application.Features.user.Query.single
                 return operation.Failure("کاربر یافت نشد");
             }
 
-            var result = _mapper.Map<SingleUserDTO>(user);
+            var result = _mapper.Map<UserSingleDTO>(user);
             return operation.Succedded(result);
         }
     }
