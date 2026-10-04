@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.city.Query.List;
+using MaktabTaha.Application.Features.baseEntities.city.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.city.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.city.Query.List
 {
     public class GetCityListHandler : IRequestHandler<GetCityListCommand, OperationResult<List<City>>>
     {

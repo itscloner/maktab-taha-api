@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.area.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.area.Query.List
 {
     public class GetAreaListHandler : IRequestHandler<GetAreaListCommand, OperationResult<List<Area>>>
     {

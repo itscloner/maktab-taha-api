@@ -1,5 +1,5 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.houseHeadStatus;
-using MaktabTaha.Application.Features.BaseEntities.houseHeadStatus.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.houseHeadStatus;
+using MaktabTaha.Application.Features.baseEntities.houseHeadStatus.Query.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaktabTaha.WebApi.Controllers.BaseEntities;

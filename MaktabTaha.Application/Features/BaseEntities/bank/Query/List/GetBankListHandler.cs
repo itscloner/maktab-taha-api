@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaktabTaha.Application.Features.BaseEntities.bank.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.bank.Query.List
 {
     public class GetBankListHandler : IRequestHandler<GetBankListCommand, OperationResult<List<Bank>>>
     {

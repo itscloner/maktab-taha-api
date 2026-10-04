@@ -1,4 +1,4 @@
-﻿using MaktabTaha.Domain.Entites;
+﻿using MaktabTaha.Domain.Entites.BaseEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.educationStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.educationStatus.Query.List
 {
     public class GetEducationStatusListHandler : IRequestHandler<GetEducationStatusListCommand, OperationResult<List<EducationStatus>>>
     {

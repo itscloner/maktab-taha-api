@@ -1,5 +1,5 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.religon.Query.List;
-using MaktabTaha.Application.Features.BaseEntities.requestStatus.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.religon.Query.List;
+using MaktabTaha.Application.Features.baseEntities.requestStatus.Query.List;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

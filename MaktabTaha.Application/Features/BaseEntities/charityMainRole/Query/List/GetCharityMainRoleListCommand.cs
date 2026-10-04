@@ -2,7 +2,7 @@
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.charityMainRole.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.charityMainRole.Query.List
 {
     public class GetCharityMainRoleListCommand : IRequest<OperationResult<List<CharityMainRole>>>
     {

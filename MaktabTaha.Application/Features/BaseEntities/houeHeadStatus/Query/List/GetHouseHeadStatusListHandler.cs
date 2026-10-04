@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.houseHeadStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.houseHeadStatus.Query.List
 {
     public class GetHouseHeadStatusListHandler : IRequestHandler<GetHouseHeadStatusListCommand, OperationResult<List<HouseHeadStatus>>>
     {

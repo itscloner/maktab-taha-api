@@ -3,7 +3,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.nationality.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.nationality.Query.List
 {
     public class GetNationalityListHandler : IRequestHandler<GetNationalityListCommand, OperationResult<List<Nationality>>>
     {

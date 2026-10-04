@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MaktabTaha.Infrastructure.Repositories.BaseEntities;
+namespace MaktabTaha.Infrastructure.Repositories.baseEntities;
 
 public class UnemploymentReasonRepository : GenericRepository<int, UnemploymentReason>, IUnemploymentReasonRepository
 {

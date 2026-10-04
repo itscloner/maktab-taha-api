@@ -3,7 +3,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.province.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.province.Query.List
 {
     public class GetProvinceListHandler : IRequestHandler<GetProvinceListCommand, OperationResult<List<Province>>>
     {

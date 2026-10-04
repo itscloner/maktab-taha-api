@@ -2,7 +2,7 @@
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.employmentStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.employmentStatus.Query.List
 {
     public class GetEmploymentStatusListCommand : IRequest<OperationResult<List<EmploymentStatus>>>
     {

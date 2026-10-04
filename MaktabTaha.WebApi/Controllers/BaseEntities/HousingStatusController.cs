@@ -1,4 +1,4 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.housingStatus.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.housingStatus.Query.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaktabTaha.WebApi.Controllers.BaseEntities;

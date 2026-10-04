@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.requestType.Query.List;
+using MaktabTaha.Application.Features.baseEntities.requestType.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.requestType.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.requestType.Query.List
 {
     public class GetRequestTypeListHandler : IRequestHandler<GetRequestTypeListCommand, OperationResult<List<RequestType>>>
     {

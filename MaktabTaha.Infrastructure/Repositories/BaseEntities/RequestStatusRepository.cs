@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaktabTaha.Infrastructure.Repositories.BaseEntities
+namespace MaktabTaha.Infrastructure.Repositories.baseEntities
 {
     public class RequestStatusRepository : GenericRepository<int, RequestStatus>, IRequestStatusRepository
     {

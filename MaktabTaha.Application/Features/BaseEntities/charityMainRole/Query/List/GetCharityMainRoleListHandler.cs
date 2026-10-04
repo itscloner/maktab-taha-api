@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.charityMainRole.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.charityMainRole.Query.List
 {
     public class GetCharityMainRoleListHandler : IRequestHandler<GetCharityMainRoleListCommand, OperationResult<List<CharityMainRole>>>
     {

@@ -132,6 +132,7 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdatePersonCommand,  Person>();
             CreateMap<Person, PersonListDTO>();
             CreateMap<Person, PersonSingleDTO>();
+
             
         }
     }

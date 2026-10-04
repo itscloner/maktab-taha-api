@@ -4,7 +4,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.orphanStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.orphanStatus.Query.List
 {
     public class GetOrphanStatusListHandler : IRequestHandler<GetOrphanStatusListCommand, OperationResult<List<OrphanStatus>>>
     {

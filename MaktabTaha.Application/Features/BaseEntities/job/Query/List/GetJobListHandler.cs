@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.job.Query.List;
+using MaktabTaha.Application.Features.baseEntities.job.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.job.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.job.Query.List
 {
     public class GetJobListHandler : IRequestHandler<GetJobListCommand, OperationResult<List<Job>>>
     {

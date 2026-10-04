@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaktabTaha.Application.Features.BaseEntities.requestStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.requestStatus.Query.List
 {
     public class GetRequestStatusListHandler : IRequestHandler<GetRequestStatusListCommand, OperationResult<List<RequestStatus>>>
     {

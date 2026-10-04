@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.relation.Query.List;
+using MaktabTaha.Application.Features.baseEntities.relation.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.relation.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.relation.Query.List
 {
     public class GetRelationListHandler : IRequestHandler<GetRelationListCommand, OperationResult<List<Relation>>>
     {

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.physicalStatus.Query.List;
+using MaktabTaha.Application.Features.baseEntities.physicalStatus.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.physicalStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.physicalStatus.Query.List
 {
     public class GetPhysicalStatusListHandler : IRequestHandler<GetPhysicalStatusListCommand, OperationResult<List<PhysicalStatus>>>
     {

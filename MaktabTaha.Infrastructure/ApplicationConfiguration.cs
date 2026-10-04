@@ -3,7 +3,7 @@ using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Application.Profiles;
 using MaktabTaha.Domain.Common;
 using MaktabTaha.Infrastructure.Repositories;
-using MaktabTaha.Infrastructure.Repositories.BaseEntities;
+using MaktabTaha.Infrastructure.Repositories.baseEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,8 +23,9 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IRequestRepository, RequestRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
 
-            
+
             services.AddScoped<ITokenServices, TokenService>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
 
@@ -53,7 +54,10 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<ISkillRepository, SkillRepository>();
             services.AddTransient<IUnemploymentReasonRepository, UnemploymentReasonRepository>();
             services.AddTransient<IRequestStatusRepository, RequestStatusRepository>();
-            services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<ICaseLevelRepository, CaseLevelRepository>();
+            services.AddTransient<IDependancyStatusRepository, DependancyStatusRepository>();
+            services.AddTransient<IGenderRepository, GenderRepository>();
+            services.AddTransient<IMaritalStatusRepository, MaritalStatusRepository>();
 
 
 

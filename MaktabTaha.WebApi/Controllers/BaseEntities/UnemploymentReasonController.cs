@@ -1,4 +1,4 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.unemploymentReason.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.unemploymentReason.Query.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaktabTaha.WebApi.Controllers.BaseEntities;

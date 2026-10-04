@@ -1,5 +1,5 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.caseType;
-using MaktabTaha.Application.Features.BaseEntities.caseType.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.caseType;
+using MaktabTaha.Application.Features.baseEntities.caseType.Query.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaktabTaha.WebApi.Controllers.BaseEntities;

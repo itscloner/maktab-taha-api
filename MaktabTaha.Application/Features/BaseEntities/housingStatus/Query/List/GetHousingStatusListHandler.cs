@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.housingStatus.Query.List;
+using MaktabTaha.Application.Features.baseEntities.housingStatus.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.housingStatus.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.housingStatus.Query.List
 {
     public class GetHousingStatusListHandler : IRequestHandler<GetHousingStatusListCommand, OperationResult<List<HousingStatus>>>
     {

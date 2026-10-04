@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.educationLevel.Query.List;
+using MaktabTaha.Application.Features.baseEntities.educationLevel.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.educationLevel.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.educationLevel.Query.List
 {
     public class GetEducationLevelListHandler : IRequestHandler<GetEducationLevelListCommand, OperationResult<List<EducationLevel>>>
     {

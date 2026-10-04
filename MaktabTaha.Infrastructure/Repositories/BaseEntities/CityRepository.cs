@@ -2,7 +2,7 @@
 using MaktabTaha.Domain.Entites.BaseEntities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MaktabTaha.Infrastructure.Repositories.BaseEntities;
+namespace MaktabTaha.Infrastructure.Repositories.baseEntities;
 
 public class CityRepository : GenericRepository<int, City>, ICityRepository
 {

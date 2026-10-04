@@ -1,4 +1,4 @@
-﻿using MaktabTaha.Application.Features.BaseEntities.relation.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.relation.Query.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaktabTaha.WebApi.Controllers.BaseEntities;

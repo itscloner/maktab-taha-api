@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using MaktabTaha.Application.Features.BaseEntities.skill.Query.List;
+using MaktabTaha.Application.Features.baseEntities.skill.Query.List;
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
-namespace MaktabTaha.Application.Features.BaseEntities.skill.Query.List
+namespace MaktabTaha.Application.Features.baseEntities.skill.Query.List
 {
     public class GetSkillListHandler : IRequestHandler<GetSkillListCommand, OperationResult<List<Skill>>>
     {
