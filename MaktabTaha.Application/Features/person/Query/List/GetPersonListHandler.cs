@@ -26,7 +26,7 @@ namespace MaktabTaha.Application.Features.person.Query.List
         {
             var operation = new OperationResult<List<PersonListDTO>>();
 
-            var persons = await _repository.List();
+            var persons = await _repository.SearchPerson(request.Filters);
 
             var mappedData = _mapper.Map<List<PersonListDTO>>(persons);
             return operation.Succedded(mappedData);

@@ -1,4 +1,5 @@
 ﻿using MaktabTaha.Application.DTO_s.person.List;
+using MaktabTaha.Application.DTO_s.person.Search;
 using MaktabTaha.Application.Helpers;
 using MediatR;
 using System;
@@ -11,5 +12,6 @@ namespace MaktabTaha.Application.Features.person.Query.List
 {
     public class GetPersonListCommand : IRequest<OperationResult<List<PersonListDTO>>>
     {
+        public SearchPersonListDTO Filters { get; set; }
     }
 }

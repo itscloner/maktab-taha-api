@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Infrastructure.Mapping.attachment
 {
-    public class AttachmentMapping : IEntityTypeConfiguration<Attachment>
+    public class AttachmentMapping : IEntityTypeConfiguration<Attachments>
     {
-        public void Configure(EntityTypeBuilder<Attachment> builder)
+        public void Configure(EntityTypeBuilder<Attachments> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.AttachmentName);

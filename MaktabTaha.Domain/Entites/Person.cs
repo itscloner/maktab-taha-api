@@ -12,7 +12,7 @@ namespace MaktabTaha.Domain.Entites
 {
     public class Person : BaseEntity<int>
     {
-        public int NationalCode { get; set; }
+        public string NationalCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }
@@ -63,7 +63,7 @@ namespace MaktabTaha.Domain.Entites
         // وضعیت سادات
         public int SadatStatusId { get; set; }
         public CaseType SadatStatus { get; set; }
-        public List<Attachment> Attachments { get; set; } = new List<Attachment>();
+        public List<Attachments> Attachments { get; set; } = new List<Attachments>();
 
     }
 }

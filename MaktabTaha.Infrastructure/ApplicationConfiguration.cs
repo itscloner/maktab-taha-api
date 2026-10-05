@@ -24,6 +24,7 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IRequestRepository, RequestRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<IAttachmentRepository, AttachmentRepository>();
 
 
             services.AddScoped<ITokenServices, TokenService>();

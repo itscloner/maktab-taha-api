@@ -12,7 +12,7 @@ namespace MaktabTaha.Application.Features.person.Command.Create
 {
     public class CreatePersonCommand : IRequest<OperationResult<Person>>
     {
-        public int NationalCode { get; set; }
+        public string NationalCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }

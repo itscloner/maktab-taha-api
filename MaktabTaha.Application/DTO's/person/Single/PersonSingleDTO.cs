@@ -9,7 +9,7 @@ namespace MaktabTaha.Application.DTO_s.person.Single
     public class PersonSingleDTO
     {
         public int Id { get; set; }
-        public int NationalCode { get; set; }
+        public string NationalCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }

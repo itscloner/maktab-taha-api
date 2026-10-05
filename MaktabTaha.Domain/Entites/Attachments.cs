@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Domain.Entites
 {
-    public class Attachment : BaseEntity<int>
+    public class Attachments : BaseEntity<int>
     {
         public string AttachmentName { get; set; }
         public byte[] Attach  { get; set; }
-        public int PersonId { get; set; }
-        public Person Person { get; set; }
+        public int? PersonId { get; set; }
+        public Person? Person { get; set; }
     }
 }

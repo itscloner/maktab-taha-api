@@ -24,6 +24,9 @@ using MaktabTaha.Application.Features.person.Command.Create;
 using MaktabTaha.Application.Features.person.Command.Update;
 using MaktabTaha.Application.DTO_s.person.List;
 using MaktabTaha.Application.DTO_s.person.Single;
+using MaktabTaha.Application.Features.attachment.Command.Update;
+using MaktabTaha.Application.Features.attachment.Query.List;
+using MaktabTaha.Application.Features.attachment.Query.Single;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -130,10 +133,19 @@ namespace MaktabTaha.Application.Profiles
             // Person
             CreateMap<CreatePersonCommand, Person>();
             CreateMap<UpdatePersonCommand,  Person>();
-            CreateMap<Person, PersonListDTO>();
+            CreateMap<Person, PersonListDTO>()
+                .ForMember(
+                    dest => dest.GenderTitle,
+                    opt => opt.MapFrom(src => src.Gender != null
+                    ? src.Gender.GenderName
+                    : null));
             CreateMap<Person, PersonSingleDTO>();
 
-            
+            // Attachment
+            CreateMap<UpdateAttachmentCommand, Attachments>()
+                .ForMember(dest => dest.Attach, opt => opt.Ignore());
+            CreateMap<Attachments, GetAttachmentListCommand>();
+            CreateMap<Attachments, GetSingleAttachmentCommand>();
         }
     }
 }
