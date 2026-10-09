@@ -134,6 +134,7 @@ namespace MaktabTaha.Infrastructure.Mapping.person
                 .HasForeignKey(x => x.SadatStatusId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            
         }
     }
 }

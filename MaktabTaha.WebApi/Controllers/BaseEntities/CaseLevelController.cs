@@ -1,4 +1,4 @@
-﻿using MaktabTaha.Application.Features.baseEntities.caseLevel.Query.List;
+﻿using MaktabTaha.Application.Features.baseEntities.caseStage.Query.List;
 using MaktabTaha.Application.Features.baseEntities.educationStatus;
 using MaktabTaha.Application.Features.baseEntities.educationStatus.Query.List;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +12,6 @@ public class CaseLevelController : BaseApiController
     [HttpGet]
     public async Task<IActionResult> GetCaseLevelsList()
     {
-        return Ok(await Mediator.Send(new GetCaseLevelListCommand()));
+        return Ok(await Mediator.Send(new GetCaseStageListCommand()));
     }
 }

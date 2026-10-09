@@ -20,6 +20,7 @@ namespace MaktabTaha.Infrastructure.Repositories
             _context = context;
         }
 
+
         public async Task<List<PersonListDTO>> SearchPerson(SearchPersonListDTO filters)
         {
             var query = _context.Person
@@ -70,6 +71,41 @@ namespace MaktabTaha.Infrastructure.Repositories
                     RecordDate = x.CreatedDate
                 }).ToListAsync();
 
+        }
+
+
+        public async Task<List<SearchCasePersonListDTO>> SearchCasePerson(SearchCasePersonListDTO filters)
+        {
+            var query = _context.Person
+                .AsNoTracking()
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filters.NationalCode))
+            {
+                var nationalCode = filters.NationalCode.Trim();
+                query = query.Where(x => x.NationalCode != null && x.NationalCode.Contains(nationalCode));
+            }
+
+            if (!string.IsNullOrWhiteSpace(filters.FirstName))
+            {
+                var firstName = filters.FirstName.Trim();
+                query = query.Where(x => x.FirstName != null && x.FirstName.Contains(firstName));
+            }
+
+            if (string.IsNullOrWhiteSpace(filters.LastName))
+            {
+                var lastName = filters.LastName.Trim();
+                query = query.Where(x => x.LastName != null && x.LastName.Contains(lastName));
+            }
+
+            return await query
+                .OrderByDescending(x => x.CreatedDate)
+                .Select(x => new SearchCasePersonListDTO
+                {
+                    NationalCode = x.NationalCode,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName
+                }).ToListAsync();
         }
     }
 }

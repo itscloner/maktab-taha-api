@@ -55,10 +55,12 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<ISkillRepository, SkillRepository>();
             services.AddTransient<IUnemploymentReasonRepository, UnemploymentReasonRepository>();
             services.AddTransient<IRequestStatusRepository, RequestStatusRepository>();
-            services.AddTransient<ICaseLevelRepository, CaseLevelRepository>();
+            services.AddTransient<ICaseStageRepository, CaseStageRepository>();
             services.AddTransient<IDependancyStatusRepository, DependancyStatusRepository>();
             services.AddTransient<IGenderRepository, GenderRepository>();
             services.AddTransient<IMaritalStatusRepository, MaritalStatusRepository>();
+            services.AddTransient<ICaseRepository, CaseRepository>();
+            services.AddTransient<ICaseStageRepository, CaseStageRepository>();
 
 
 

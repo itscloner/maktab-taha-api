@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.Interfaces.Repositories.BaseEntities
 {
-    public interface ICaseLevelRepository : IGenericRepository<int, CaseLevel>
+    public interface ICaseStageRepository : IGenericRepository<int, CaseStage>
     {
     }
 }

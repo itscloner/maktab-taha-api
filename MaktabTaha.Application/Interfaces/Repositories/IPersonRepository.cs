@@ -12,5 +12,6 @@ namespace MaktabTaha.Application.Interfaces.Repositories
     public interface IPersonRepository : IGenericRepository<int, Person>
     {
         Task<List<PersonListDTO>> SearchPerson(SearchPersonListDTO filters);
+        Task<List<SearchCasePersonListDTO>> SearchCasePerson(SearchCasePersonListDTO filters);
     }
 }

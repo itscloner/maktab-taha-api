@@ -9,9 +9,11 @@ namespace MaktabTaha.Domain.Entites
 {
     public class Attachments : BaseEntity<int>
     {
-        public string AttachmentName { get; set; }
+        public string AttachmentType { get; set; }
         public byte[] Attach  { get; set; }
         public int? PersonId { get; set; }
         public Person? Person { get; set; }
+        public int? CaseId { get; set; }
+        public Case? Case { get; set; }
     }
 }

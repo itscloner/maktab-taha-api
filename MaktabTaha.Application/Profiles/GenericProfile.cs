@@ -27,6 +27,9 @@ using MaktabTaha.Application.DTO_s.person.Single;
 using MaktabTaha.Application.Features.attachment.Command.Update;
 using MaktabTaha.Application.Features.attachment.Query.List;
 using MaktabTaha.Application.Features.attachment.Query.Single;
+using MaktabTaha.Application.Features.caseDesc.Command.Create;
+using MaktabTaha.Application.Features.caseDesc.Command.Update;
+using MaktabTaha.Application.DTO_s.caseDesc.Single;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -146,6 +149,11 @@ namespace MaktabTaha.Application.Profiles
                 .ForMember(dest => dest.Attach, opt => opt.Ignore());
             CreateMap<Attachments, GetAttachmentListCommand>();
             CreateMap<Attachments, GetSingleAttachmentCommand>();
+
+            // Case
+            CreateMap<CreateCaseCommand, Case>();
+            CreateMap<UpdateCaseCommand, Case>();
+            CreateMap<Case, CaseSingleDTO>();
         }
     }
 }

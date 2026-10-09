@@ -14,13 +14,19 @@ namespace MaktabTaha.Infrastructure.Mapping.attachment
         public void Configure(EntityTypeBuilder<Attachments> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.AttachmentName);
+            builder.Property(x => x.AttachmentType);
             builder.Property(x => x.Attach);
 
             builder.Property(x => x.PersonId);
             builder.HasOne(x => x.Person)
                 .WithMany()
                 .HasForeignKey(x => x.PersonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(x => x.CaseId);
+            builder.HasOne(x => x.Case)
+                .WithMany()
+                .HasForeignKey(x => x.CaseId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

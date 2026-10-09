@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DTO%27s\caseDesc\Create\" />
+    <Folder Include="DTO%27s\caseDesc\List\" />
+    <Folder Include="DTO%27s\caseDesc\Update\" />
     <Folder Include="Features\baseEntities\area\Command\Create\" />
     <Folder Include="Features\baseEntities\area\Command\Delete\" />
     <Folder Include="Features\baseEntities\area\Command\Update\" />
@@ -25,10 +28,10 @@
     <Folder Include="Features\baseEntities\bank\Command\Delete\" />
     <Folder Include="Features\baseEntities\bank\Command\Update\" />
     <Folder Include="Features\baseEntities\bank\Query\Single\" />
-    <Folder Include="Features\baseEntities\caseLevel\Command\Create\" />
-    <Folder Include="Features\baseEntities\caseLevel\Command\Delete\" />
-    <Folder Include="Features\baseEntities\caseLevel\Command\Update\" />
-    <Folder Include="Features\baseEntities\caseLevel\Query\Single\" />
+    <Folder Include="Features\baseEntities\caseStage\Command\Create\" />
+    <Folder Include="Features\baseEntities\caseStage\Command\Delete\" />
+    <Folder Include="Features\baseEntities\caseStage\Command\Update\" />
+    <Folder Include="Features\baseEntities\caseStage\Query\Single\" />
     <Folder Include="Features\baseEntities\caseType\Command\Create\" />
     <Folder Include="Features\baseEntities\caseType\Command\Delete\" />
     <Folder Include="Features\baseEntities\caseType\Command\Update\" />

@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaktabTaha.Infrastructure.Mapping.caseLevel
+namespace MaktabTaha.Infrastructure.Mapping.baseEntities
 {
-    public class ClassLevelMapping : IEntityTypeConfiguration<CaseLevel>
+    public class CaseStageMapping : IEntityTypeConfiguration<CaseStage>
     {
-        public void Configure(EntityTypeBuilder<CaseLevel> builder)
+        public void Configure(EntityTypeBuilder<CaseStage> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.CaseLevelName);
+
+            builder.Property(x => x.CaseStageDesc);
         }
     }
 }

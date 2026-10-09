@@ -1,12 +1,5 @@
 ﻿using MaktabTaha.Domain.Common;
 using MaktabTaha.Domain.Entites.BaseEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaktabTaha.Domain.Entites
 {
@@ -64,6 +57,8 @@ namespace MaktabTaha.Domain.Entites
         public int SadatStatusId { get; set; }
         public CaseType SadatStatus { get; set; }
         public List<Attachments> Attachments { get; set; } = new List<Attachments>();
+
+        public ICollection<CasePerson> CasePersons { get; set; } = new List<CasePerson>();
 
     }
 }

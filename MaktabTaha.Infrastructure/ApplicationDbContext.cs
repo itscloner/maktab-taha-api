@@ -38,10 +38,11 @@ namespace MaktabTaha.Infrastructure
 
         public DbSet<DependancyStatus> DependancyStatus {  get; set; }
         public DbSet<MaritalStatus> MaritalStatus { get; set; }
-        public DbSet<CaseLevel> CaseLevel { get; set; }
+        public DbSet<CaseStage> CaseStage { get; set; }
         public DbSet<Person> Person { get; set; }
         public DbSet<Attachments> Attachment { get; set; }
-
+        public DbSet<CasePerson> CasePerson { get; set; }
+        public DbSet<Case> Case { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

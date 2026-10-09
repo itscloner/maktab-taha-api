@@ -1,4 +1,5 @@
-﻿using MaktabTaha.Application.Features.person.Command.Create;
+﻿using MaktabTaha.Application.DTO_s.person.Search;
+using MaktabTaha.Application.Features.person.Command.Create;
 using MaktabTaha.Application.Features.person.Command.Delete;
 using MaktabTaha.Application.Features.person.Command.Update;
 using MaktabTaha.Application.Features.person.Query.List;
@@ -36,9 +37,9 @@ namespace MaktabTaha.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPerosnList()
+        public async Task<IActionResult> GetPerosnList([FromQuery] SearchPersonListDTO filter)
         {
-            return Ok(await Mediator.Send(new GetPersonListCommand()));
+            return Ok(await Mediator.Send(new GetPersonListCommand { Filters = filter}));
         }
 
         [HttpGet("{id}")]

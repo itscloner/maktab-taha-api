@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace MaktabTaha.Infrastructure.Repositories.baseEntities
 {
-    public class CaseLevelRepository : GenericRepository<int, CaseLevel>, ICaseLevelRepository
+    public class CaseStageRepository : GenericRepository<int, CaseStage>, ICaseStageRepository
     {
         private readonly ApplicationDbContext _context;
-        public CaseLevelRepository(ApplicationDbContext context) : base(context)
+        public CaseStageRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
