@@ -26,8 +26,8 @@ namespace MaktabTaha.Application.Features.caseDesc.Query.Single
         {
             var operation = new OperationResult<CaseSingleDTO>();
 
-            var caseDesc = await _repository.FirstOrDefault(x => x.Id == request.Id);
-            if (caseDesc != null) return operation.Failure("پرونده یافت نشد");
+            var caseDesc = await _repository.FirstOrDefault(x => x.CaseNumber == request.CaseNumber);
+            if (caseDesc != null) return operation.Failure("یافت نشد");
 
             var mappedData = _mapper.Map<CaseSingleDTO>(caseDesc);
             return operation.Succedded(mappedData);

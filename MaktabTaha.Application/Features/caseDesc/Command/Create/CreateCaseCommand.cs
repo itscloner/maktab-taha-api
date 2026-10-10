@@ -1,17 +1,19 @@
 ﻿using MaktabTaha.Application.Helpers;
 using MaktabTaha.Domain.Entites;
+using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
 
 namespace MaktabTaha.Application.Features.caseDesc.Command.Create
 {
     public class CreateCaseCommand : IRequest<OperationResult<Case>>
     {
+        public string CaseNumber { get; set; }
+
         public int RequestId { get; set; }
         public int CaseTypeId { get; set; }
         public int PrivatenessStatusId { get; set; }
         public int HouseHeadStatusId { get; set; }
         public int ReferrerId { get; set; }
-        public int SupervisorId { get; set; }
 
         //اطلاعات سکونت
         public int ProvinceId { get; set; }
@@ -34,5 +36,11 @@ namespace MaktabTaha.Application.Features.caseDesc.Command.Create
         public string AccountNumber { get; set; }
         public string IBAN { get; set; }
         public string CardNumber { get; set; }
+
+        // مرحله پرونده
+        public int CaseStageId { get; set; }
+
+        // وضعیت فعال
+        public CaseActiveStatus ActiveStatus { get; set; }
     }
 }

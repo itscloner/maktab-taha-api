@@ -102,9 +102,9 @@ namespace MaktabTaha.Infrastructure.Repositories
                 .OrderByDescending(x => x.CreatedDate)
                 .Select(x => new SearchCasePersonListDTO
                 {
-                    NationalCode = x.NationalCode,
-                    FirstName = x.FirstName,
-                    LastName = x.LastName
+                    NationalCode = x.NationalCode ?? string.Empty,
+                    FirstName = x.FirstName ?? string.Empty,
+                    LastName = x.LastName ?? string.Empty
                 }).ToListAsync();
         }
     }

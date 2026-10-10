@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaktabTaha.Application.Features.caseDesc.Command.Delete
+namespace MaktabTaha.Application.Features.casePerson.Command.Delete
 {
-    public class DeleteCaseCommand : IRequest<OperationResult<bool>>
+    public class DeleteCasePersonCommand : IRequest<OperationResult<bool>>
     {
-        public string CaseNumber { get; set; }
+        public int Id { get; set; }
     }
 }

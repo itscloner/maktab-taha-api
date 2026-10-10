@@ -27,7 +27,7 @@ namespace MaktabTaha.Infrastructure.Mapping.attachment
             builder.HasOne(x => x.Case)
                 .WithMany()
                 .HasForeignKey(x => x.CaseId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

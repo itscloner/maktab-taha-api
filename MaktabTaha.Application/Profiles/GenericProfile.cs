@@ -30,6 +30,12 @@ using MaktabTaha.Application.Features.attachment.Query.Single;
 using MaktabTaha.Application.Features.caseDesc.Command.Create;
 using MaktabTaha.Application.Features.caseDesc.Command.Update;
 using MaktabTaha.Application.DTO_s.caseDesc.Single;
+using MaktabTaha.Application.Features.casePerson.Command.Create;
+using MaktabTaha.Application.Features.casePerson.Command.Update;
+using MaktabTaha.Application.DTO_s.casePerson.List;
+using MaktabTaha.Application.DTO_s.casePerson.Single;
+using MaktabTaha.Application.DTO_s.caseDesc.List;
+using MaktabTaha.Application.DTO_s.person.Search;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -143,6 +149,7 @@ namespace MaktabTaha.Application.Profiles
                     ? src.Gender.GenderName
                     : null));
             CreateMap<Person, PersonSingleDTO>();
+            CreateMap<Person, SearchCasePersonListDTO>();
 
             // Attachment
             CreateMap<UpdateAttachmentCommand, Attachments>()
@@ -154,6 +161,31 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<CreateCaseCommand, Case>();
             CreateMap<UpdateCaseCommand, Case>();
             CreateMap<Case, CaseSingleDTO>();
+            CreateMap<Case, CaseListDTO>()
+                .ForMember(
+                    dest => dest.NationalCode,
+                    opt => opt.MapFrom(src => src.CasePersons
+                        .Where(cp => cp.Relation.RelationName == "سرپرست")
+                        .Select(cp => cp.Person.NationalCode)
+                        .SingleOrDefault()))
+                .ForMember(
+                    dest => dest.SupervisorFirstName,
+                    opt => opt.MapFrom(src => src.CasePersons
+                        .Where(cp => cp.Relation.RelationName == "سرپرست")
+                        .Select(cp => cp.Person.FirstName)
+                        .SingleOrDefault()))
+                .ForMember(
+                    dest => dest.SupervisorLastName,
+                    opt => opt.MapFrom(src => src.CasePersons
+                        .Where(cp => cp.Relation.RelationName == "سرپرست")
+                        .Select(cp => cp.Person.LastName)
+                        .SingleOrDefault()));
+
+            // CasePerosn
+            CreateMap<CreateCasePersonCommand, CasePerson>();
+            CreateMap<UpdateCasePersonCommand, CasePerson>();
+            CreateMap<CasePerson, CasePersonSingleDTO>();
+            CreateMap<CasePerson, CasePersonListDTO>();
         }
     }
 }

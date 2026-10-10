@@ -23,8 +23,8 @@ namespace MaktabTaha.Application.Features.caseDesc.Command.Delete
         {
             var operation = new OperationResult<bool>();
 
-            var caseDesc = await _repository.FirstOrDefault(x => x.Id == request.Id);
-            if (caseDesc != null) return operation.Failure("پرونده یافت نشد");
+            var caseDesc = await _repository.FirstOrDefault(x => x.CaseNumber == request.CaseNumber);
+            if (caseDesc != null) return operation.Failure("یافت نشد");
 
             await _repository.Delete(caseDesc);
             return operation.Succedded(true);

@@ -7,10 +7,10 @@ namespace MaktabTaha.WebApi.Controllers.BaseEntities;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CaseLevelController : BaseApiController
+public class CaseStageController : BaseApiController
 {
     [HttpGet]
-    public async Task<IActionResult> GetCaseLevelsList()
+    public async Task<IActionResult> GetCaseStagesList()
     {
         return Ok(await Mediator.Send(new GetCaseStageListCommand()));
     }

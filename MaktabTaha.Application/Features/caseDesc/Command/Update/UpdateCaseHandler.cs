@@ -26,8 +26,8 @@ namespace MaktabTaha.Application.Features.caseDesc.Command.Update
         {
             var operation = new OperationResult<Case>();
 
-            var caseDesc = await _repository.FirstOrDefault(x => x.Id ==  request.Id);
-            if (caseDesc == null) return operation.Failure("پرونده یافت نشد");
+            var caseDesc = await _repository.FirstOrDefault(x => x.CaseNumber ==  request.CaseNumber);
+            if (caseDesc == null) return operation.Failure("یافت نشد");
 
             _mapper.Map(request, caseDesc);
             _repository.Update(caseDesc);

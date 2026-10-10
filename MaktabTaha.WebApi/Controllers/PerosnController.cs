@@ -3,6 +3,7 @@ using MaktabTaha.Application.Features.person.Command.Create;
 using MaktabTaha.Application.Features.person.Command.Delete;
 using MaktabTaha.Application.Features.person.Command.Update;
 using MaktabTaha.Application.Features.person.Query.List;
+using MaktabTaha.Application.Features.person.Query.SearchCasePerson;
 using MaktabTaha.Application.Features.person.Query.Single;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -39,13 +40,19 @@ namespace MaktabTaha.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPerosnList([FromQuery] SearchPersonListDTO filter)
         {
-            return Ok(await Mediator.Send(new GetPersonListCommand { Filters = filter}));
+            return Ok(await Mediator.Send(new GetPersonListCommand { Filters = filter }));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPersonSingle(int id)
         {
             return Ok(await Mediator.Send(new GetPersonSingleCommand { Id = id }));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCasePerson([FromQuery] SearchCasePersonListDTO filter)
+        {
+            return Ok(await Mediator.Send(new GetCasePersonListCommand { Filters = filter }));
         }
     }
 }

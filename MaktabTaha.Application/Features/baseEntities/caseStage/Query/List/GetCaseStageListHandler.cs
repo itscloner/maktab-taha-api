@@ -7,10 +7,10 @@ using MediatR;
 
 namespace MaktabTaha.Application.Features.baseEntities.caseStage.Query.List
 {
-    public class GetCaseLevelListHandler : IRequestHandler<GetCaseStageListCommand, OperationResult<List<CaseStage>>>
+    public class GetCaseStageListHandler : IRequestHandler<GetCaseStageListCommand, OperationResult<List<CaseStage>>>
     {
         private readonly ICaseStageRepository _repository;
-        public GetCaseLevelListHandler(ICaseStageRepository repository)
+        public GetCaseStageListHandler(ICaseStageRepository repository)
         {
             _repository = repository;
         }

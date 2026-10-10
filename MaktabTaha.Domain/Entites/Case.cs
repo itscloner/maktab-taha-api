@@ -13,7 +13,7 @@ namespace MaktabTaha.Domain.Entites
     {
         //آیدی پرونده و تاریخ ثبت پرونده در BaseEntity وجود دارند
         // شماره پرونده
-        public int CaseNumber { get; set; }
+        public string CaseNumber { get; set; }
 
         public int RequestId { get; set; }
         public Request Request { get; set; }

@@ -4,6 +4,7 @@ using MaktabTaha.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaktabTaha.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261009203636_UpdateCaseName")]
+    partial class UpdateCaseName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -920,9 +923,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CaseNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CaseNumber")
+                        .HasColumnType("int");
 
                     b.Property<int>("CaseStageId")
                         .HasColumnType("int");
@@ -1005,7 +1007,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasIndex("RequestId")
                         .IsUnique();
 
-                    b.ToTable("CaseBNF");
+                    b.ToTable("CaseDesc");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.CasePerson", b =>

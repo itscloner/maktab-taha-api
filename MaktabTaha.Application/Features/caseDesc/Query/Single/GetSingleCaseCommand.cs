@@ -11,6 +11,6 @@ namespace MaktabTaha.Application.Features.caseDesc.Query.Single
 {
     public class GetSingleCaseCommand : IRequest<OperationResult<CaseSingleDTO>>
     {
-        public int Id { get; set; }
+        public string CaseNumber { get; set; }
     }
 }
