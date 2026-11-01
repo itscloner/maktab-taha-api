@@ -23,7 +23,7 @@ namespace MaktabTaha.Application.DTO_s.tahghigh.Single
         public int SecondMohagheghId { get; set; }
         public string SecondMohagheghName { get; set; }
 
-        public MohagheghIdea MohagheghIdea { get; set; }
+        public int MohagheghIdeaId { get; set; }
         public string MohagheghDescription { get; set; }
     }
 }

@@ -37,8 +37,11 @@ namespace MaktabTaha.Infrastructure.Mapping.tahghigh
                 .HasForeignKey(x => x.SecondMohagheghId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            // enum نظر محقق
-            builder.Property(x => x.MohagheghIdea).HasConversion<string>();
+            builder.Property(x => x.MohagheghIdeaId);
+            builder.HasOne(x => x.MohagheghIdea)
+                .WithMany()
+                .HasForeignKey(x => x.MohagheghIdeaId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.MohagheghDescription);
         }

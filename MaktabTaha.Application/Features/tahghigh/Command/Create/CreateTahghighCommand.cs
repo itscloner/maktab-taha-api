@@ -21,7 +21,7 @@ namespace MaktabTaha.Application.Features.tahghigh.Command.Create
 
         public int FirstMohagheghId { get; set; }
         public int SecondMohagheghId { get; set; }
-        public MohagheghIdea MohagheghIdea { get; set; }
+        public int MohagheghIdeaId { get; set; }
         public string MohagheghDescription { get; set; }
     }
 }

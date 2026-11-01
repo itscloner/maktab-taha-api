@@ -665,6 +665,35 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.ToTable("MaritalStatus");
                 });
 
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.MohagheghIdea", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MohagheghIdea");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "عدم تایید"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "تایید"
+                        });
+                });
+
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.Nationality", b =>
                 {
                     b.Property<int>("Id")
@@ -1821,9 +1850,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MohagheghIdea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MohagheghIdeaId")
+                        .HasColumnType("int");
 
                     b.Property<int>("MoshaverehId")
                         .HasColumnType("int");
@@ -1840,6 +1868,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("FirstMohagheghId");
+
+                    b.HasIndex("MohagheghIdeaId");
 
                     b.HasIndex("MoshaverehId");
 
@@ -2547,6 +2577,12 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.MohagheghIdea", "MohagheghIdea")
+                        .WithMany()
+                        .HasForeignKey("MohagheghIdeaId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("MaktabTaha.Domain.Entites.Moshavereh", "Moshavereh")
                         .WithMany()
                         .HasForeignKey("MoshaverehId")
@@ -2560,6 +2596,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("FirstMohaghegh");
+
+                    b.Navigation("MohagheghIdea");
 
                     b.Navigation("Moshavereh");
 

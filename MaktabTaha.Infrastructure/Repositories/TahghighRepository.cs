@@ -106,7 +106,7 @@ namespace MaktabTaha.Infrastructure.Repositories
                     ClientDescription = x.ClientDescription,
                     FirstMohagheghId = x.FirstMohagheghId,
                     SecondMohagheghId = x.SecondMohagheghId,
-                    MohagheghIdea = x.MohagheghIdea,
+                    MohagheghIdeaId = x.MohagheghIdeaId,
                     MohagheghDescription = x.MohagheghDescription
                 }).FirstOrDefaultAsync();
         }
