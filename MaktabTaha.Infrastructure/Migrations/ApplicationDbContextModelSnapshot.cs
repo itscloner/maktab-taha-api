@@ -1178,6 +1178,61 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.ToTable("CaseBNF");
                 });
 
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.CaseDonorHelps", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CaseNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CaseTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DonorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FromDate")
+                        .HasColumnType("Date");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("MoneyAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TasvibId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ToDate")
+                        .HasColumnType("Date");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CaseNumber");
+
+                    b.HasIndex("CaseTypeId");
+
+                    b.HasIndex("DonorId");
+
+                    b.HasIndex("TasvibId");
+
+                    b.ToTable("CaseDonorHelps");
+                });
+
             modelBuilder.Entity("MaktabTaha.Domain.Entites.CasePerson", b =>
                 {
                     b.Property<int>("Id")
@@ -2161,6 +2216,42 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Navigation("Referrer");
 
                     b.Navigation("Request");
+                });
+
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.CaseDonorHelps", b =>
+                {
+                    b.HasOne("MaktabTaha.Domain.Entites.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseNumber")
+                        .HasPrincipalKey("CaseNumber")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.CaseType", "CaseType")
+                        .WithMany()
+                        .HasForeignKey("CaseTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.Donor", "Donor")
+                        .WithMany()
+                        .HasForeignKey("DonorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.Tasvib", "Tasvib")
+                        .WithMany()
+                        .HasForeignKey("TasvibId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Case");
+
+                    b.Navigation("CaseType");
+
+                    b.Navigation("Donor");
+
+                    b.Navigation("Tasvib");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.CasePerson", b =>

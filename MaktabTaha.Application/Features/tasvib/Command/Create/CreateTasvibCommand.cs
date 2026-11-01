@@ -11,7 +11,7 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
 {
     public class CreateTasvibCommand : IRequest<OperationResult<Tasvib>>
     {
-        public DateTime TasvibDate { get; set; }
+        public DateTime TasvibDate { get; set; } = DateTime.Now;
         public int TahghighId { get; set; }
         public string CaseNumber { get; set; }
         public string ClientRequestDescription { get; set; }
