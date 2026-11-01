@@ -71,6 +71,9 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Property<int?>("TahghighId1")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TasvibId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -91,6 +94,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasIndex("TahghighId");
 
                     b.HasIndex("TahghighId1");
+
+                    b.HasIndex("TasvibId");
 
                     b.ToTable("Attachment");
                 });
@@ -602,6 +607,35 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.ToTable("Job");
                 });
 
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.ManagerTasvibStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ManagerTasvibStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "منتظر تایید"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "تایید"
+                        });
+                });
+
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.MaritalStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -925,6 +959,35 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Skill");
+                });
+
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.TasvibStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TasvibStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "عدم تصویب"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "تصویب"
+                        });
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.UnemploymentReason", b =>
@@ -1785,6 +1848,72 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.ToTable("Tahghigh");
                 });
 
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.Tasvib", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CaseNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ClientRequestDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ManagerTasvibStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MosavebId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TahghighId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TasvibDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TasvibReason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TasvibStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CaseNumber");
+
+                    b.HasIndex("ManagerTasvibStatusId");
+
+                    b.HasIndex("MosavebId");
+
+                    b.HasIndex("TahghighId");
+
+                    b.HasIndex("TasvibStatusId");
+
+                    b.ToTable("Tasvib");
+                });
+
             modelBuilder.Entity("MaktabTaha.Domain.Entites.User", b =>
                 {
                     b.Property<int>("Id")
@@ -1886,6 +2015,11 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .WithMany("Attachments")
                         .HasForeignKey("TahghighId1");
 
+                    b.HasOne("MaktabTaha.Domain.Entites.Tasvib", "Tasvib")
+                        .WithMany()
+                        .HasForeignKey("TasvibId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.Navigation("Case");
 
                     b.Navigation("Donor");
@@ -1895,6 +2029,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Navigation("Person");
 
                     b.Navigation("Tahghigh");
+
+                    b.Navigation("Tasvib");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.BaseEntities.City", b =>
@@ -2428,6 +2564,50 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Navigation("Moshavereh");
 
                     b.Navigation("SecondMohaghegh");
+                });
+
+            modelBuilder.Entity("MaktabTaha.Domain.Entites.Tasvib", b =>
+                {
+                    b.HasOne("MaktabTaha.Domain.Entites.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseNumber")
+                        .HasPrincipalKey("CaseNumber")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.ManagerTasvibStatus", "ManagerTasvibStatus")
+                        .WithMany()
+                        .HasForeignKey("ManagerTasvibStatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.Donor", "Mosaveb")
+                        .WithMany()
+                        .HasForeignKey("MosavebId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.Tahghigh", "Tahghigh")
+                        .WithMany()
+                        .HasForeignKey("TahghighId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.TasvibStatus", "TasvibStatus")
+                        .WithMany()
+                        .HasForeignKey("TasvibStatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Case");
+
+                    b.Navigation("ManagerTasvibStatus");
+
+                    b.Navigation("Mosaveb");
+
+                    b.Navigation("Tahghigh");
+
+                    b.Navigation("TasvibStatus");
                 });
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.User", b =>

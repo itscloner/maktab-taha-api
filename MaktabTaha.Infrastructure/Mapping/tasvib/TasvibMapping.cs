@@ -37,12 +37,20 @@ namespace MaktabTaha.Infrastructure.Mapping.tasvib
                 .HasForeignKey(x => x.MosavebId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(x => x.TasvibStatus).HasConversion<string>();
+            builder.Property(x => x.TasvibStatusId);
+            builder.HasOne(x => x.TasvibStatus)
+                .WithMany()
+                .HasForeignKey(x => x.TasvibStatusId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.TasvibReason);
             builder.Property(x => x.Description);
 
-            builder.Property(x => x.ManagerTasvibStatus).HasConversion<string>();
+            builder.Property(x => x.ManagerTasvibStatusId);
+            builder.HasOne(x => x.ManagerTasvibStatus)
+                .WithMany()
+                .HasForeignKey(x => x.ManagerTasvibStatusId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

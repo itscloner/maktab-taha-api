@@ -137,6 +137,8 @@
     <Folder Include="Features\baseEntities\unemploymentReason\Command\Delete\" />
     <Folder Include="Features\baseEntities\unemploymentReason\Command\Update\" />
     <Folder Include="Features\baseEntities\unemploymentReason\Query\Single\" />
+    <Folder Include="Features\tasvib\Query\List\" />
+    <Folder Include="Features\tasvib\Query\Single\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using MaktabTaha.Domain.Common;
+using MaktabTaha.Domain.Entites.BaseEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +20,17 @@ namespace MaktabTaha.Domain.Entites
         public string ClientRequestDescription { get; set; }
         public int MosavebId { get; set; }
         public Donor Mosaveb { get; set; }
-        
+
         //وضعیت تصویب
+        public int TasvibStatusId { get; set; }
         public TasvibStatus TasvibStatus { get; set; }
         public string TasvibReason { get; set; }
         public string Description { get; set; }
-        
+
         //وضعیت تایید مدیر
-        public TasvibStatus ManagerTasvibStatus { get; set; }
+        public int ManagerTasvibStatusId { get; set; }
+        public ManagerTasvibStatus ManagerTasvibStatus { get; set; }
     }
 
-    public enum TasvibStatus
-    {
-        // وضعیت تصویب : تصویب و عدم تصویب
-        NotApprove = 0,
-        Approve
-    }
+    
 }
