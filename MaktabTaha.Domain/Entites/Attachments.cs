@@ -21,5 +21,7 @@ namespace MaktabTaha.Domain.Entites
         public Tahghigh? Tahghigh { get; set; }
         public int? DonorId { get; set; }
         public Donor? Donor { get; set; }
+        public int? TasvibId { get; set; }
+        public Tasvib? Tasvib { get; set; }
     }
 }

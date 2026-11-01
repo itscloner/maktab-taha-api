@@ -70,6 +70,7 @@ namespace MaktabTaha.Infrastructure
             services.AddTransient<IDonorRepository, DonorRepository>();
             services.AddTransient<ICharityReferralSourceRepository, CharityReferralSourceRepository>();
             services.AddTransient<IDonorTypeRepository, DonorTypeRepository>();
+            services.AddTransient<ITasvibRepository, TasvibRepository>();
 
 
 

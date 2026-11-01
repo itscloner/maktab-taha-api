@@ -14,6 +14,8 @@ namespace MaktabTaha.Application.Features.attachment.Command.Create
         public int? MoshaverehId { get; set; }
         public int? TahghighId { get; set; }
         public int? DonorId { get; set; }
+        public int? TasvibId { get; set; }
+
     }
 }
 

@@ -47,6 +47,7 @@ namespace MaktabTaha.Infrastructure
         public DbSet<Moshavereh> Moshavereh { get; set; }
         public DbSet<Tahghigh> Tahghigh { get; set; }
         public DbSet<Donor> Donor { get; set; }
+        public DbSet<Tasvib> Tasvib { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

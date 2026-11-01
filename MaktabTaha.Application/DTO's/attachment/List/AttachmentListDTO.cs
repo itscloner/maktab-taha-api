@@ -16,5 +16,7 @@ namespace MaktabTaha.Application.DTO_s.attachment.List
         public int? MoshaverehId { get; set; }
         public int? TahghighId { get; set; }
         public int? DonorId { get; set; }
+        public int? TasvibId { get; set; }
+
     }
 }
