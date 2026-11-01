@@ -26,7 +26,7 @@ namespace MaktabTaha.Infrastructure.Repositories
             return await _context.Tahghigh
                 .Include(x => x.Moshavereh)
                 .ThenInclude(x => x.Case)
-                .FirstOrDefaultAsync(x => x.Moshavereh.Case.CaseNumber == caseNumber);
+                .FirstOrDefaultAsync(x => x.CaseNumber == caseNumber);
         }
 
         public async Task<List<TahghighListDTO>> GetAllTahghighList(SearchTahghighDTO filters)
@@ -38,8 +38,8 @@ namespace MaktabTaha.Infrastructure.Repositories
             if (!string.IsNullOrWhiteSpace(filters.CaseNumber))
             {
                 var caseNumber = filters.CaseNumber.Trim();
-                query = query.Where(x => x.Moshavereh.CaseNumber != null &&
-                                    x.Moshavereh.CaseNumber.Contains(caseNumber));
+                query = query.Where(x => x.CaseNumber != null &&
+                                    x.CaseNumber.Contains(caseNumber));
             }
 
             if (!string.IsNullOrWhiteSpace(filters.SupervisorFirstName))
@@ -77,7 +77,7 @@ namespace MaktabTaha.Infrastructure.Repositories
                 .Select(x => new TahghighListDTO
                 {
                     Id = x.Tahghigh.Id,
-                    CaseNumber = x.Tahghigh.Moshavereh.CaseNumber ?? string.Empty,
+                    CaseNumber = x.Tahghigh.CaseNumber ?? string.Empty,
 
                     SupervisorFirstName = x.Supervisor
                                                     .Where(x => x.RelationId == 1)
@@ -102,7 +102,7 @@ namespace MaktabTaha.Infrastructure.Repositories
                 {
                     Id = x.Id,
                     TahghighDate = x.TahghighDate,
-                    CaseNumber = x.Moshavereh.CaseNumber,
+                    CaseNumber = x.CaseNumber,
                     ClientDescription = x.ClientDescription,
                     FirstMohagheghId = x.FirstMohagheghId,
                     SecondMohagheghId = x.SecondMohagheghId,

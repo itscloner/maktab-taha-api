@@ -14,6 +14,7 @@ namespace MaktabTaha.Application.Features.tahghigh.Command.Create
         // تاریخ تحقیق
         public DateTime TahghighDate { get; set; } = DateTime.Now;
 
+        public string CaseNumber { get; set; }
         // شماره پیش تحقیق
         public int MoshaverehId { get; set; }
 

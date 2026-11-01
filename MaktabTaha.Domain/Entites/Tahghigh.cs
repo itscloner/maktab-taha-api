@@ -13,6 +13,8 @@ namespace MaktabTaha.Domain.Entites
         // شماره تحقیق همان Id است
         // تاریخ تحقیق
         public DateTime TahghighDate { get; set; } = DateTime.Now;
+        public string CaseNumber { get; set; }
+        public Case Case { get; set; }
 
         // شماره پیش تحقیق
         public int MoshaverehId { get; set; }

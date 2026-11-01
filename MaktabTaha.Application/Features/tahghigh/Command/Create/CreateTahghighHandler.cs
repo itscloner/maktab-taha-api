@@ -28,7 +28,7 @@ namespace MaktabTaha.Application.Features.tahghigh.Command.Create
         public async Task<OperationResult<Tahghigh>> Handle(CreateTahghighCommand request, CancellationToken cancellationToken)
         {
             var operation = new OperationResult<Tahghigh>();
-            var caseBnf = await _caseRepository.SingleOrDefault(x => x.Moshaverehs.Any(x => x.Id == request.MoshaverehId));
+            var caseBnf = await _caseRepository.SingleOrDefault(x => x.CaseNumber == request.CaseNumber);
             if (caseBnf.CaseStageId != 2) return operation.Failure("ثبت تحقیق قبلا انجام شده است"); 
 
             var mappedData = _mapper.Map<Tahghigh>(request);

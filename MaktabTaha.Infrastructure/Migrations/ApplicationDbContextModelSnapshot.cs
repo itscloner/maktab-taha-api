@@ -1830,6 +1830,10 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CaseNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ClientDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1866,6 +1870,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CaseNumber");
 
                     b.HasIndex("FirstMohagheghId");
 
@@ -2571,6 +2577,13 @@ namespace MaktabTaha.Infrastructure.Migrations
 
             modelBuilder.Entity("MaktabTaha.Domain.Entites.Tahghigh", b =>
                 {
+                    b.HasOne("MaktabTaha.Domain.Entites.Case", "Case")
+                        .WithMany()
+                        .HasForeignKey("CaseNumber")
+                        .HasPrincipalKey("CaseNumber")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "FirstMohaghegh")
                         .WithMany()
                         .HasForeignKey("FirstMohagheghId")
@@ -2586,7 +2599,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasOne("MaktabTaha.Domain.Entites.Moshavereh", "Moshavereh")
                         .WithMany()
                         .HasForeignKey("MoshaverehId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "SecondMohaghegh")
@@ -2594,6 +2607,8 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .HasForeignKey("SecondMohagheghId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Case");
 
                     b.Navigation("FirstMohaghegh");
 

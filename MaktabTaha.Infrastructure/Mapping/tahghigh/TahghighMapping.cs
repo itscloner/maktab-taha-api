@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xaml.Permissions;
 
 namespace MaktabTaha.Infrastructure.Mapping.tahghigh
 {
@@ -17,11 +18,18 @@ namespace MaktabTaha.Infrastructure.Mapping.tahghigh
 
             builder.Property(x => x.TahghighDate);
 
+            builder.Property(x => x.CaseNumber);
+            builder.HasOne(x => x.Case)
+                .WithMany()
+                .HasForeignKey(x => x.CaseNumber)
+                .HasPrincipalKey(x => x.CaseNumber)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Property(x => x.MoshaverehId);
             builder.HasOne(x => x.Moshavereh)
                 .WithMany()
                 .HasForeignKey(x => x.MoshaverehId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.ClientDescription);
 
