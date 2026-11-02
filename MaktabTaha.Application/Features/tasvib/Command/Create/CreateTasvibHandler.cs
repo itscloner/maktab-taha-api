@@ -2,6 +2,7 @@
 using MaktabTaha.Application.Helpers;
 using MaktabTaha.Application.Interfaces;
 using MaktabTaha.Application.Interfaces.Repositories;
+using MaktabTaha.Application.Interfaces.Repositories.BaseEntities;
 using MaktabTaha.Domain.Entites;
 using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
@@ -16,12 +17,13 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICaseDonorHelpsRepository _caseDonorHelpsRepository;
 
-        public CreateTasvibHandler(ITasvibRepository tasvibRepository, ICaseRepository caseRepository, IMapper mapper, IUnitOfWork unitOfWork)
+        public CreateTasvibHandler(ITasvibRepository tasvibRepository, ICaseRepository caseRepository, IMapper mapper, IUnitOfWork unitOfWork, ICaseDonorHelpsRepository caseDonorHelpsRepository)
         {
             _tasvibRepository = tasvibRepository;
             _caseRepository = caseRepository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _caseDonorHelpsRepository = caseDonorHelpsRepository;
         }
 
         public async Task<OperationResult<Tasvib>> Handle(CreateTasvibCommand request, CancellationToken cancellationToken)
@@ -34,13 +36,6 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
 
             var mappedData = _mapper.Map<Tasvib>(request);
 
-            var invalidItem = request.CaseDonorHelps.FirstOrDefault(item =>
-                item.RequestType.IsContinuous == (IsContinuous)2 &&
-                (!item.FromDate.HasValue || !item.ToDate.HasValue)
-            );
-
-            if (invalidItem != null) return operation.Failure("برای کمک مستمر، تاریخ شروع و پایان الزامی است.");
-
             try
             {
                 await _unitOfWork.ExecuteInTransactionAsync(
@@ -52,7 +47,7 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
                         {
                             var caseDonorHelps = new CaseDonorHelps
                             {
-                                TasvibId = item.TasvibId,
+                                TasvibId = mappedData.Id,
                                 CaseNumber = item.CaseNumber,
                                 RequestTypeId = item.RequestTypeId,
                                 MoneyAmount = item.MoneyAmount,

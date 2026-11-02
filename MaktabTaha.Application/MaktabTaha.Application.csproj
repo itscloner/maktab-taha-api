@@ -25,7 +25,6 @@
     <Folder Include="DTO%27s\Moshavereh\Create\" />
     <Folder Include="DTO%27s\tasvib\List\" />
     <Folder Include="DTO%27s\tasvib\Search\" />
-    <Folder Include="DTO%27s\tasvib\Single\" />
     <Folder Include="Features\baseEntities\area\Command\Create\" />
     <Folder Include="Features\baseEntities\area\Command\Delete\" />
     <Folder Include="Features\baseEntities\area\Command\Update\" />
@@ -142,8 +141,6 @@
     <Folder Include="Features\baseEntities\unemploymentReason\Command\Delete\" />
     <Folder Include="Features\baseEntities\unemploymentReason\Command\Update\" />
     <Folder Include="Features\baseEntities\unemploymentReason\Query\Single\" />
-    <Folder Include="Features\tasvib\Query\List\" />
-    <Folder Include="Features\tasvib\Query\Single\" />
   </ItemGroup>
 
 </Project>

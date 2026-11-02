@@ -10,12 +10,9 @@ namespace MaktabTaha.Application.DTO_s.caseDonorHelps.Create
 {
     public class CreateCaseDonorHelpsDTO
     {
-        public int TasvibId { get; set; }
-
         public string CaseNumber { get; set; }
 
         public int RequestTypeId { get; set; }
-        public RequestType RequestType { get; set; }
 
         //مبلغ
         public decimal MoneyAmount { get; set; }

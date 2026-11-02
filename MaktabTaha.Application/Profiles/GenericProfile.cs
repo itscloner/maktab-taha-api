@@ -54,6 +54,7 @@ using System.Xml.Serialization;
 using MaktabTaha.Application.Features.tasvib.Command.Create;
 using MaktabTaha.Application.Features.tasvib.Command.Update;
 using MaktabTaha.Application.DTO_s.tasvib.Update;
+using MaktabTaha.Application.DTO_s.tasvib.Single;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -230,7 +231,7 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdateTasvibCommand, Tasvib>()
                 .ForMember(dest => dest.CaseNumber, opt => opt.Ignore());
             CreateMap<Tasvib, UpdateTasvibDTO>();
-
+            CreateMap<Tasvib, SingleTasvibDTO>();
         }
     }
 }
