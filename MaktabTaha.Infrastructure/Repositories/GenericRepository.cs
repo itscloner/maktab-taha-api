@@ -80,5 +80,11 @@ namespace MaktabTaha.Infrastructure.Repositories
 
             return entity;
         }
+
+        public async Task<T> CreateNoSave(T entity)
+        {
+            await _context.Set<T>().AddAsync(entity);
+            return entity;
+        }
     }
 }

@@ -17,10 +17,6 @@ namespace MaktabTaha.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<CasePerson> CreateNoSave(CasePerson entity)
-        {
-            await _context.CasePerson.AddAsync(entity);
-            return entity;
-        }
+        
     }
 }

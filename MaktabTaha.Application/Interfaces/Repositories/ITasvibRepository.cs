@@ -9,5 +9,6 @@ namespace MaktabTaha.Application.Interfaces.Repositories
 {
     public interface ITasvibRepository : IGenericRepository<int, Tasvib>
     {
+        Task<Tasvib> FirstOrDefaultWith(string caseNumber);
     }
 }

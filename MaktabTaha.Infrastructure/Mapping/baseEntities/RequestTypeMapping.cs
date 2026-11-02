@@ -15,6 +15,8 @@ namespace MaktabTaha.Infrastructure.Mapping.baseEntities
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.RequestTypeName);
+
+            builder.Property(x => x.IsContinuous);
         }
     }
 }

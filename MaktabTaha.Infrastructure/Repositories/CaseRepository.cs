@@ -21,11 +21,7 @@ namespace MaktabTaha.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Case> CreateNoSave(Case entity)
-        {
-            await _context.CaseBNF.AddAsync(entity);
-            return entity;
-        }
+        
 
         public async Task<CaseMoshaverehSingleDTO> GetCaseMoshaverehSingle(string caseNumber)
         {

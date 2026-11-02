@@ -28,10 +28,10 @@ namespace MaktabTaha.Infrastructure.Mapping.caseDonorHelps
                 .HasPrincipalKey(x => x.CaseNumber)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(x => x.CaseTypeId);
-            builder.HasOne(x => x.CaseType)
+            builder.Property(x => x.RequestTypeId);
+            builder.HasOne(x => x.RequestType)
                 .WithMany()
-                .HasForeignKey(x => x.CaseTypeId)
+                .HasForeignKey(x => x.RequestTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.MoneyAmount);

@@ -946,6 +946,9 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("IsContinuous")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -1190,16 +1193,13 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CaseTypeId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DonorId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FromDate")
+                    b.Property<DateTime?>("FromDate")
                         .HasColumnType("Date");
 
                     b.Property<bool>("IsActive")
@@ -1211,10 +1211,13 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.Property<decimal>("MoneyAmount")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("RequestTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TasvibId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ToDate")
+                    b.Property<DateTime?>("ToDate")
                         .HasColumnType("Date");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -1224,9 +1227,9 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.HasIndex("CaseNumber");
 
-                    b.HasIndex("CaseTypeId");
-
                     b.HasIndex("DonorId");
+
+                    b.HasIndex("RequestTypeId");
 
                     b.HasIndex("TasvibId");
 
@@ -2227,16 +2230,16 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.CaseType", "CaseType")
-                        .WithMany()
-                        .HasForeignKey("CaseTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "Donor")
                         .WithMany()
                         .HasForeignKey("DonorId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.RequestType", "RequestType")
+                        .WithMany()
+                        .HasForeignKey("RequestTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Tasvib", "Tasvib")
@@ -2247,9 +2250,9 @@ namespace MaktabTaha.Infrastructure.Migrations
 
                     b.Navigation("Case");
 
-                    b.Navigation("CaseType");
-
                     b.Navigation("Donor");
+
+                    b.Navigation("RequestType");
 
                     b.Navigation("Tasvib");
                 });

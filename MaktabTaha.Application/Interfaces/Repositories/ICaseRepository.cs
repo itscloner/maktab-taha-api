@@ -15,8 +15,6 @@ namespace MaktabTaha.Application.Interfaces.Repositories
     {
         Task<List<CaseListDTO>> SearchCaseList(SearchCaseDTO filters);
 
-        Task<Case> CreateNoSave(Case entity);
-
         Task<CaseMoshaverehSingleDTO> GetCaseMoshaverehSingle(string caseNumber);
 
     }

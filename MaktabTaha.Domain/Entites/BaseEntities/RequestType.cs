@@ -1,14 +1,16 @@
 ﻿using MaktabTaha.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaktabTaha.Domain.Entites.BaseEntities
 {
     public class RequestType : BaseEntity<int>
     {
         public string RequestTypeName { get; set; }
+        public IsContinuous IsContinuous { get; set; }
+    }
+
+    public enum IsContinuous
+    {
+        NotContinuous = 1,
+        Continuous = 2
     }
 }

@@ -5,6 +5,7 @@ namespace MaktabTaha.Application.Interfaces
     public interface  IGenericRepository<TKey, T> where T : class
     {
         Task<T> Create(T entity);
+        Task<T> CreateNoSave(T entity);
         Task<T> Update(T entity);
         Task<T> Delete(T entity);
         Task<T> GetBy(TKey id);

@@ -1,4 +1,5 @@
-﻿using MaktabTaha.Application.Helpers;
+﻿using MaktabTaha.Application.DTO_s.caseDonorHelps.Create;
+using MaktabTaha.Application.Helpers;
 using MaktabTaha.Domain.Entites;
 using MediatR;
 using System;
@@ -24,5 +25,7 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
 
         //وضعیت تایید مدیر
         public int ManagerTasvibStatusId { get; set; }
+
+        public List<CreateCaseDonorHelpsDTO> CaseDonorHelps { get; set; } = new List<CreateCaseDonorHelpsDTO>();
     }
 }

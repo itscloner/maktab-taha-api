@@ -19,8 +19,8 @@ namespace MaktabTaha.Domain.Entites
         public string CaseNumber { get; set; }
         public Case Case { get; set; }
 
-        public int CaseTypeId { get; set; }
-        public CaseType CaseType { get; set; }
+        public int RequestTypeId { get; set; }
+        public RequestType RequestType { get; set; }
 
         //مبلغ
         public decimal MoneyAmount { get; set; }
@@ -28,7 +28,7 @@ namespace MaktabTaha.Domain.Entites
         public int DonorId { get; set; }
         public Donor Donor { get; set; }
 
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
     }
 }

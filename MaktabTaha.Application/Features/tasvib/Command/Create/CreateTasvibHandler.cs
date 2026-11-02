@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using MaktabTaha.Application.Helpers;
+using MaktabTaha.Application.Interfaces;
 using MaktabTaha.Application.Interfaces.Repositories;
 using MaktabTaha.Domain.Entites;
+using MaktabTaha.Domain.Entites.BaseEntities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.Features.tasvib.Command.Create
 {
@@ -17,12 +13,15 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
         private readonly ITasvibRepository _tasvibRepository;
         private readonly ICaseRepository _caseRepository;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ICaseDonorHelpsRepository _caseDonorHelpsRepository;
 
-        public CreateTasvibHandler(ITasvibRepository tasvibRepository, ICaseRepository caseRepository, IMapper mapper)
+        public CreateTasvibHandler(ITasvibRepository tasvibRepository, ICaseRepository caseRepository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _tasvibRepository = tasvibRepository;
             _caseRepository = caseRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<OperationResult<Tasvib>> Handle(CreateTasvibCommand request, CancellationToken cancellationToken)
@@ -34,9 +33,52 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
             if (caseBnf.CaseStageId != 3) return operation.Failure("پرونده در مرحله تحقیق نمیباشد");
 
             var mappedData = _mapper.Map<Tasvib>(request);
-            await _tasvibRepository.Create(mappedData);
-            return operation.Succedded(mappedData);
-             
+
+            var invalidItem = request.CaseDonorHelps.FirstOrDefault(item =>
+                item.RequestType.IsContinuous == (IsContinuous)2 &&
+                (!item.FromDate.HasValue || !item.ToDate.HasValue)
+            );
+
+            if (invalidItem != null) return operation.Failure("برای کمک مستمر، تاریخ شروع و پایان الزامی است.");
+
+            try
+            {
+                await _unitOfWork.ExecuteInTransactionAsync(
+                    async ct =>
+                    {
+                        await _tasvibRepository.Create(mappedData);
+
+                        foreach (var item in request.CaseDonorHelps)
+                        {
+                            var caseDonorHelps = new CaseDonorHelps
+                            {
+                                TasvibId = item.TasvibId,
+                                CaseNumber = item.CaseNumber,
+                                RequestTypeId = item.RequestTypeId,
+                                MoneyAmount = item.MoneyAmount,
+                                DonorId = item.DonorId,
+                                FromDate = item.FromDate,
+                                ToDate = item.ToDate
+                            };
+
+                            await _caseDonorHelpsRepository.CreateNoSave(caseDonorHelps);
+                        }
+
+                        await _unitOfWork.SaveChangesAsync(ct);
+                    }
+                    , cancellationToken);
+
+                return operation.Succedded(mappedData);
+            }
+            catch(OperationCanceledException)
+            {
+                throw;
+            }
+
+            catch (Exception ex)
+            {
+                return operation.Failure("خطا در ثبت تصویب و کمک های خیرین مربوط به آن پرونده. هیچ یک از عملیات ها انجام نمیشوند " + ex.Message);
+            }
         }
     }
 }

@@ -49,7 +49,6 @@ namespace MaktabTaha.Application.Features.caseDesc.Command.Create
                     {
                         await _caseRepository.CreateNoSave(mappedData);
 
-                        await _unitOfWork.SaveChangesAsync(ct);
 
                         foreach (var item in request.PersonsInCase)
                         {
@@ -78,7 +77,7 @@ namespace MaktabTaha.Application.Features.caseDesc.Command.Create
 
             catch(Exception ex)
             {
-                return operation.Failure("خطا در ثبت پرونده با افراد مربوط به آن. هیچ یک از عملیات ها ثبت نهایی نشد.");
+                return operation.Failure("خطا در ثبت پرونده با افراد مربوط به آن. هیچ یک از عملیات ها ثبت نهایی نشد." + ex.Message);
             }
         }
     }
