@@ -51,6 +51,9 @@ using MaktabTaha.Application.Features.donor.Query.Single;
 using MaktabTaha.Application.DTO_s.donor.Single;
 using MaktabTaha.Application.DTO_s.tahghigh.List;
 using System.Xml.Serialization;
+using MaktabTaha.Application.Features.tasvib.Command.Create;
+using MaktabTaha.Application.Features.tasvib.Command.Update;
+using MaktabTaha.Application.DTO_s.tasvib.Update;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -220,6 +223,13 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<CreateDonorCommand, Donor>();
             CreateMap<UpdateDonorCommand, Donor>();
             CreateMap<Donor, DonorSingleDTO>();
+
+
+            // Tasvib
+            CreateMap<CreateTasvibCommand, Tasvib>();
+            CreateMap<UpdateTasvibCommand, Tasvib>()
+                .ForMember(dest => dest.CaseNumber, opt => opt.Ignore());
+            CreateMap<Tasvib, UpdateTasvibDTO>();
 
         }
     }

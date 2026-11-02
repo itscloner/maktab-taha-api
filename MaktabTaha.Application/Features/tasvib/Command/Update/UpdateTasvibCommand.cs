@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MaktabTaha.Application.DTO_s.tasvib.Update;
+using MaktabTaha.Application.Helpers;
+using MediatR;
 
 namespace MaktabTaha.Application.Features.tasvib.Command.Update
 {
-    internal class UpdateTasvibCommand
+    public class UpdateTasvibCommand : IRequest<OperationResult<UpdateTasvibDTO>>
     {
+        public string CaseNumber { get; set; }
+        public string ClientRequestDescription { get; set; }
+        public int TasvibStatusId { get; set; }
+        public string TasvibReason { get; set; }
+        public string Description { get; set; }
+
     }
 }

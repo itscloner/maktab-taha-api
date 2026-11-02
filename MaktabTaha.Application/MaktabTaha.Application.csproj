@@ -25,7 +25,6 @@
     <Folder Include="DTO%27s\Moshavereh\Create\" />
     <Folder Include="DTO%27s\tasvib\List\" />
     <Folder Include="DTO%27s\tasvib\Search\" />
-    <Folder Include="DTO%27s\tasvib\Update\" />
     <Folder Include="DTO%27s\tasvib\Single\" />
     <Folder Include="Features\baseEntities\area\Command\Create\" />
     <Folder Include="Features\baseEntities\area\Command\Delete\" />
