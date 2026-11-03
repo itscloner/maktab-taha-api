@@ -34,27 +34,22 @@ using MaktabTaha.Application.Features.casePerson.Command.Create;
 using MaktabTaha.Application.Features.casePerson.Command.Update;
 using MaktabTaha.Application.DTO_s.casePerson.List;
 using MaktabTaha.Application.DTO_s.casePerson.Single;
-using MaktabTaha.Application.DTO_s.caseDesc.List;
 using MaktabTaha.Application.DTO_s.person.Search;
 using MaktabTaha.Application.Features.moshavereh.Command.Create;
 using MaktabTaha.Application.Features.moshavereh.Command.Update;
 using MaktabTaha.Application.DTO_s.Moshavereh.Single;
 using MaktabTaha.Application.DTO_s.Moshavereh.Update;
-using MaktabTaha.Application.Features.caseDesc.Query.Single;
 using MaktabTaha.Application.Features.tahghigh.Command.Create;
 using MaktabTaha.Application.Features.tahghigh.Command.Update;
 using MaktabTaha.Application.DTO_s.tahghigh.Update;
 using MaktabTaha.Application.DTO_s.tahghigh.Single;
 using MaktabTaha.Application.Features.donor.Command.Create;
 using MaktabTaha.Application.Features.donor.Command.Update;
-using MaktabTaha.Application.Features.donor.Query.Single;
 using MaktabTaha.Application.DTO_s.donor.Single;
-using MaktabTaha.Application.DTO_s.tahghigh.List;
-using System.Xml.Serialization;
 using MaktabTaha.Application.Features.tasvib.Command.Create;
 using MaktabTaha.Application.Features.tasvib.Command.Update;
 using MaktabTaha.Application.DTO_s.tasvib.Update;
-using MaktabTaha.Application.DTO_s.tasvib.Single;
+using MaktabTaha.Application.DTO_s.caseDonorHelps.Create;
 
 namespace MaktabTaha.Application.Profiles
 {
@@ -231,7 +226,10 @@ namespace MaktabTaha.Application.Profiles
             CreateMap<UpdateTasvibCommand, Tasvib>()
                 .ForMember(dest => dest.CaseNumber, opt => opt.Ignore());
             CreateMap<Tasvib, UpdateTasvibDTO>();
-            CreateMap<Tasvib, SingleTasvibDTO>();
+
+
+            // DonorHelpsDTO
+            CreateMap<CreateCaseDonorHelpsDTO, CaseDonorHelps>();
         }
     }
 }

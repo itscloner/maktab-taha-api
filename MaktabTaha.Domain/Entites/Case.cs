@@ -65,6 +65,7 @@ namespace MaktabTaha.Domain.Entites
         // وضعیت فعال
         public CaseActiveStatus ActiveStatus { get; set; }
         public List<Moshavereh> Moshaverehs { get; set; } = new List<Moshavereh>();
+        [JsonIgnore]
         public List<Tasvib> Tasvibs { get; set; } = new List<Tasvib>();
     }
 }

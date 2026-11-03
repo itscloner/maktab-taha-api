@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MaktabTaha.Domain.Entites
@@ -16,6 +17,7 @@ namespace MaktabTaha.Domain.Entites
         public int TahghighId { get; set; }
         public Tahghigh Tahghigh { get; set; }
         public string CaseNumber { get; set; }
+        [JsonIgnore]
         public Case Case { get; set; }
         public string ClientRequestDescription { get; set; }
         public int MosavebId { get; set; }
@@ -30,6 +32,7 @@ namespace MaktabTaha.Domain.Entites
         //وضعیت تایید مدیر
         public int ManagerTasvibStatusId { get; set; }
         public ManagerTasvibStatus ManagerTasvibStatus { get; set; }
+        public List<CaseDonorHelps> CaseDonorHelps { get; set; } = new List<CaseDonorHelps>();
     }
 
     

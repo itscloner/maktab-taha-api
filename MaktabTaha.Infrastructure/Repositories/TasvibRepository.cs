@@ -1,5 +1,6 @@
 ﻿using MaktabTaha.Application.DTO_s.tasvib.ListCaseOfTasvib;
 using MaktabTaha.Application.DTO_s.tasvib.Search;
+using MaktabTaha.Application.DTO_s.tasvib.TasvibDetails;
 using MaktabTaha.Application.Interfaces.Repositories;
 using MaktabTaha.Domain.Entites;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,54 @@ namespace MaktabTaha.Infrastructure.Repositories
                 .Include(x => x.Case)
                 .FirstOrDefaultAsync(x => x.CaseNumber == caseNumber);
         }
+
+
+        // اطلاعات جزئیات تصویب
+        public async Task<TasvibDetailsDTO> GetTasvibDetails(int id)
+        {
+            return await _context.Tasvib
+                .Where(x => x.Id == id)
+                .AsNoTracking()
+                .Select(x => new TasvibDetailsDTO
+                {
+                    Id = id,
+                    TasvibDate = x.TasvibDate,
+                    CaseNumber = x.CaseNumber,
+                    ClientRequestDescription = x.ClientRequestDescription,
+                    TasvibStatusId = x.TasvibStatusId,
+                    TasvibStatusName = x.TasvibStatus.Title,
+                    TasvibReason = x.TasvibReason,
+                    Description = x.Description,
+                    ManagerTasvibStatusId = x.ManagerTasvibStatusId,
+                    ManagerTasvibStatusName = x.ManagerTasvibStatus.Title,
+
+                    CaseDonorHelpDetails = x.CaseDonorHelps.Select(x => new CaseDonorHelpDetailsDTO
+                    {
+                        RequestTypeId = x.RequestTypeId,
+                        RequestTypeName = x.RequestType.RequestTypeName,
+                        MoneyAmount = x.MoneyAmount,
+                        DonorId = x.DonorId,
+                        DonorFullName = x.Donor.Firstname + " " + x.Donor.Lastname,
+                        FromDate = x.FromDate,
+                        ToDate = x.ToDate,
+                    }).ToList(),
+
+
+                    CaseDonorHelpSummary = x.CaseDonorHelps.GroupBy(x => x.RequestTypeId)
+                    .Select(y => new CaseDonorHelpSummaryDTO
+                    {
+                        RequestTypeId = y.Key,
+                        RequestTypeName = y.First().RequestType.RequestTypeName,
+                        TotalMoneyAmount = y.Sum(x => x.MoneyAmount),
+                        FromDate = y.Min(x => x.FromDate),
+                        ToDate = y.Max(x => x.ToDate),
+                    }).ToList()
+
+                }).FirstOrDefaultAsync();
+        }
+
+
+
 
         public async Task<List<ListCaseOfTasvibDTO>> SearchCaseOfTasvibList(SearchCaseOfTasvibDTO filters)
         {

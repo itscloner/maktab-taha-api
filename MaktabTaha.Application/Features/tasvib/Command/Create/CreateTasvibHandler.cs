@@ -29,7 +29,7 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
         public async Task<OperationResult<Tasvib>> Handle(CreateTasvibCommand request, CancellationToken cancellationToken)
         {
             var operation = new OperationResult<Tasvib>();
-            var caseBnf = await _caseRepository.FirstOrDefault(x => x.CaseNumber == request.CaseNumber);
+            var caseBnf = await _caseRepository.FirstOrDefaultWithTrack(x => x.CaseNumber == request.CaseNumber);
             if (caseBnf == null) return operation.Failure("پرونده‌ای وجود ندارد");
 
             if (caseBnf.CaseStageId != 3) return operation.Failure("پرونده در مرحله تحقیق نمیباشد");
@@ -63,6 +63,8 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Create
                     }
                     , cancellationToken);
 
+                caseBnf.CaseStageId = 4;
+                await _caseRepository.Update(caseBnf);
                 return operation.Succedded(mappedData);
             }
             catch(OperationCanceledException)

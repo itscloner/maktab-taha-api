@@ -4,6 +4,7 @@ using MaktabTaha.Application.Features.tasvib.Command.Delete;
 using MaktabTaha.Application.Features.tasvib.Command.Update;
 using MaktabTaha.Application.Features.tasvib.Query.CaseHeaderWithTasvibs;
 using MaktabTaha.Application.Features.tasvib.Query.ListCaseOfTasvib;
+using MaktabTaha.Application.Features.tasvib.Query.TasvibDetails;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -49,6 +50,13 @@ namespace MaktabTaha.WebApi.Controllers
         public async Task<IActionResult> GetCaseHeaderWithTasvibs(string caseNumber)
         {
             return Ok(await Mediator.Send(new GetCaseHeaderWithTasvibsCommand { CaseNumber = caseNumber }));
+        }
+
+        // اطلاعات جزئیات تصویب
+        [HttpGet("Tasvib-Details-With-Helps/{id}")]
+        public async Task<IActionResult> GetTasvibDetails(int id)
+        {
+            return Ok(await Mediator.Send(new GetTasvibDetailsCommand { Id = id }));
         }
 
     }
