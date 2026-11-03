@@ -1,15 +1,10 @@
 ﻿using MaktabTaha.Application.DTO_s.caseDesc.List;
 using MaktabTaha.Application.DTO_s.caseDesc.Search;
 using MaktabTaha.Application.DTO_s.caseDesc.Single;
+using MaktabTaha.Application.DTO_s.tasvib.CaseHeaderWithTasvibs;
 using MaktabTaha.Application.Interfaces.Repositories;
 using MaktabTaha.Domain.Entites;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaktabTaha.Infrastructure.Repositories
 {
@@ -21,7 +16,76 @@ namespace MaktabTaha.Infrastructure.Repositories
             _context = context;
         }
 
-        
+        // فرم نمایش تصویب : اطلاعات هدر فرم و اطلاعات تصویب های انجام شده
+        public async Task<CaseHeaderWithTasvibsDTO> GetCaseHeaderWithTasvibs(string caseNumber)
+        {
+
+
+            //    return await _context.CaseBNF
+            //                              .AsNoTracking()
+            //                              .Where(x => x.CaseNumber == caseNumber)
+            //                              .Select(x => new CaseHeaderWithTasvibsDTO
+            //                              {
+            //                                  CaseNumber = x.CaseNumber,
+            //                                  SupervisorFirstName = x.CasePersons
+            //                                                                    .Where(x => x.RelationId == 1)
+            //                                                                    .Select(x => x.Person.FirstName)
+            //                                                                    .FirstOrDefault(),
+            //                                  SupervisorLastName = x.CasePersons
+            //                                                                    .Where(x => x.RelationId == 1)
+            //                                                                    .Select(x => x.Person.LastName)
+            //                                                                    .FirstOrDefault(),
+            //                                  PrivatenessStatusId = x.PrivatenessStatusId,
+            //                                  PrivatenessStatusName = x.PrivatenessStatus.PrivatenessStatusName,
+            //                                  CaseStageId = x.CaseStageId,
+            //                                  CaseStageName = x.CaseStage.CaseStageDesc,
+            //                                  TasvibList = x.Tasvibs.Select(x => new TasvibListDTO
+            //                                  {
+            //                                      Id = x.Id,
+            //                                      TavibDate = x.TasvibDate,
+            //                                      CaseNumber = x.CaseNumber,
+            //                                      ClientRequestDescription = x.ClientRequestDescription
+
+            //                                  }).ToList()
+            //                              })
+            //                              .FirstOrDefaultAsync();
+            //
+
+
+            // برای یکبار تولید subquery برای نام و نام خانوادگی سرپرست
+            return await (
+               from c in _context.CaseBNF.AsNoTracking()
+               where c.CaseNumber == caseNumber
+
+               // let برای تعریف متغیر میانی در Linq Query
+               let supervisor = c.CasePersons
+                                           .Where(x => x.RelationId == 1)
+                                           .Select(x => x.Person)
+
+               select (new CaseHeaderWithTasvibsDTO
+               {
+                   CaseNumber = c.CaseNumber,
+
+                   SupervisorFirstName = supervisor.Select(x => x.FirstName).FirstOrDefault(),
+                   SupervisorLastName = supervisor.Select(x => x.LastName).FirstOrDefault(),
+
+                   PrivatenessStatusId = c.PrivatenessStatusId,
+                   PrivatenessStatusName = c.PrivatenessStatus.PrivatenessStatusName,
+
+                   CaseStageId = c.CaseStageId,
+                   CaseStageName = c.CaseStage.CaseStageDesc,
+
+                   TasvibList = c.Tasvibs.Select(x => new TasvibListDTO
+                   {
+                       Id = x.Id,
+                       TavibDate = x.TasvibDate,
+                       CaseNumber = x.CaseNumber,
+                       ClientRequestDescription = x.ClientRequestDescription
+                   }).ToList()
+               })
+               ).FirstOrDefaultAsync();
+        }
+
 
         public async Task<CaseMoshaverehSingleDTO> GetCaseMoshaverehSingle(string caseNumber)
         {

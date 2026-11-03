@@ -24,7 +24,7 @@ namespace MaktabTaha.Infrastructure.Mapping.tasvib
 
             builder.Property(x => x.CaseNumber);
             builder.HasOne(x => x.Case)
-                .WithMany()
+                .WithMany(x => x.Tasvibs)
                 .HasForeignKey(x => x.CaseNumber)
                 .HasPrincipalKey(x => x.CaseNumber)
                 .OnDelete(DeleteBehavior.Restrict);

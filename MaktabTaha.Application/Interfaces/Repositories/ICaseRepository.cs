@@ -1,13 +1,8 @@
 ﻿using MaktabTaha.Application.DTO_s.caseDesc.List;
 using MaktabTaha.Application.DTO_s.caseDesc.Search;
 using MaktabTaha.Application.DTO_s.caseDesc.Single;
+using MaktabTaha.Application.DTO_s.tasvib.CaseHeaderWithTasvibs;
 using MaktabTaha.Domain.Entites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaktabTaha.Application.Interfaces.Repositories
 {
@@ -17,5 +12,8 @@ namespace MaktabTaha.Application.Interfaces.Repositories
 
         Task<CaseMoshaverehSingleDTO> GetCaseMoshaverehSingle(string caseNumber);
 
+
+        // فرم نمایش تصویب : اطلاعات هدر فرم و اطلاعات تصویب های انجام شده
+        Task<CaseHeaderWithTasvibsDTO> GetCaseHeaderWithTasvibs(string caseNumber);
     }
 }

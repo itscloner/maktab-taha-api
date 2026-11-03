@@ -23,8 +23,6 @@
     <Folder Include="DTO%27s\caseDonorHelps\Single\" />
     <Folder Include="DTO%27s\casePerson\Update\" />
     <Folder Include="DTO%27s\Moshavereh\Create\" />
-    <Folder Include="DTO%27s\tasvib\List\" />
-    <Folder Include="DTO%27s\tasvib\Search\" />
     <Folder Include="Features\baseEntities\area\Command\Create\" />
     <Folder Include="Features\baseEntities\area\Command\Delete\" />
     <Folder Include="Features\baseEntities\area\Command\Update\" />

@@ -1,14 +1,13 @@
-﻿using MaktabTaha.Domain.Entites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MaktabTaha.Application.DTO_s.tasvib.ListCaseOfTasvib;
+using MaktabTaha.Application.DTO_s.tasvib.Search;
+using MaktabTaha.Domain.Entites;
 
 namespace MaktabTaha.Application.Interfaces.Repositories
 {
     public interface ITasvibRepository : IGenericRepository<int, Tasvib>
     {
         Task<Tasvib> FirstOrDefaultWith(string caseNumber);
+        Task<List<ListCaseOfTasvibDTO>> SearchCaseOfTasvibList(SearchCaseOfTasvibDTO filters);
+
     }
 }
