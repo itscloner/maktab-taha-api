@@ -37,7 +37,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                         column: x => x.CaseNumber,
                         principalTable: "CaseBNF",
                         principalColumn: "CaseNumber",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CaseDonorHelps_Donor_DonorId",
                         column: x => x.DonorId,
@@ -49,13 +49,13 @@ namespace MaktabTaha.Infrastructure.Migrations
                         column: x => x.RequestTypeId,
                         principalTable: "RequestType",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CaseDonorHelps_Tasvib_TasvibId",
                         column: x => x.TasvibId,
                         principalTable: "Tasvib",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -23,13 +23,13 @@ namespace MaktabTaha.Infrastructure.Mapping.tahghigh
                 .WithMany()
                 .HasForeignKey(x => x.CaseNumber)
                 .HasPrincipalKey(x => x.CaseNumber)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.MoshaverehId);
             builder.HasOne(x => x.Moshavereh)
                 .WithMany()
                 .HasForeignKey(x => x.MoshaverehId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.ClientDescription);
 

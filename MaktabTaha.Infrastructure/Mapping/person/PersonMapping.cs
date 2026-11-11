@@ -44,7 +44,7 @@ namespace MaktabTaha.Infrastructure.Mapping.person
             builder.HasOne(x => x.BirthCity)
                 .WithMany()
                 .HasForeignKey(x => x.BirthCityId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.MaritalStatusId);
             builder.HasOne(x => x.MaritalStatus)
@@ -132,7 +132,7 @@ namespace MaktabTaha.Infrastructure.Mapping.person
             builder.HasOne(x => x.SadatStatus)
                 .WithMany()
                 .HasForeignKey(x => x.SadatStatusId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             
         }

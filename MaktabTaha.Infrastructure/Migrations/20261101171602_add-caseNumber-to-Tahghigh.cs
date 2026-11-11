@@ -32,7 +32,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 column: "CaseNumber",
                 principalTable: "CaseBNF",
                 principalColumn: "CaseNumber",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Tahghigh_Moshavereh_MoshaverehId",
@@ -40,7 +40,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 column: "MoshaverehId",
                 principalTable: "Moshavereh",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />

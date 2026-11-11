@@ -2227,13 +2227,13 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CaseNumber")
                         .HasPrincipalKey("CaseNumber")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.CaseType", "CaseType")
                         .WithMany()
                         .HasForeignKey("CaseTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "Donor")
@@ -2245,7 +2245,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasOne("MaktabTaha.Domain.Entites.Tasvib", "Tasvib")
                         .WithMany()
                         .HasForeignKey("TasvibId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Case");
@@ -2675,7 +2675,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CaseNumber")
                         .HasPrincipalKey("CaseNumber")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "FirstMohaghegh")
@@ -2693,7 +2693,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                     b.HasOne("MaktabTaha.Domain.Entites.Moshavereh", "Moshavereh")
                         .WithMany()
                         .HasForeignKey("MoshaverehId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "SecondMohaghegh")
@@ -2719,31 +2719,31 @@ namespace MaktabTaha.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("CaseNumber")
                         .HasPrincipalKey("CaseNumber")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.ManagerTasvibStatus", "ManagerTasvibStatus")
                         .WithMany()
                         .HasForeignKey("ManagerTasvibStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Donor", "Mosaveb")
                         .WithMany()
                         .HasForeignKey("MosavebId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.Tahghigh", "Tahghigh")
                         .WithMany()
                         .HasForeignKey("TahghighId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MaktabTaha.Domain.Entites.BaseEntities.TasvibStatus", "TasvibStatus")
                         .WithMany()
                         .HasForeignKey("TasvibStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Case");

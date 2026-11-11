@@ -9,7 +9,7 @@ namespace MaktabTaha.Domain.Common
 
             byte[] excelFile = null;
 
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ExcelPackage.License.SetNonCommercialPersonal("Alireza");
             using (ExcelPackage package = new ExcelPackage())
             {
                 var worksheet = package.Workbook.Worksheets.Add(sheetName);

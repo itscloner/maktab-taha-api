@@ -73,31 +73,31 @@ namespace MaktabTaha.Infrastructure.Migrations
                         column: x => x.CaseNumber,
                         principalTable: "CaseBNF",
                         principalColumn: "CaseNumber",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tasvib_Donor_MosavebId",
                         column: x => x.MosavebId,
                         principalTable: "Donor",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tasvib_ManagerTasvibStatus_ManagerTasvibStatusId",
                         column: x => x.ManagerTasvibStatusId,
                         principalTable: "ManagerTasvibStatus",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tasvib_Tahghigh_TahghighId",
                         column: x => x.TahghighId,
                         principalTable: "Tahghigh",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tasvib_TasvibStatus_TasvibStatusId",
                         column: x => x.TasvibStatusId,
                         principalTable: "TasvibStatus",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(

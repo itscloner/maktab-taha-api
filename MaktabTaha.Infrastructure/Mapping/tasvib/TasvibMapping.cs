@@ -20,14 +20,14 @@ namespace MaktabTaha.Infrastructure.Mapping.tasvib
             builder.HasOne(x => x.Tahghigh)
                 .WithMany()
                 .HasForeignKey(x => x.TahghighId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.CaseNumber);
             builder.HasOne(x => x.Case)
                 .WithMany(x => x.Tasvibs)
                 .HasForeignKey(x => x.CaseNumber)
                 .HasPrincipalKey(x => x.CaseNumber)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.ClientRequestDescription);
 
@@ -35,13 +35,13 @@ namespace MaktabTaha.Infrastructure.Mapping.tasvib
             builder.HasOne(x => x.Mosaveb)
                 .WithMany()
                 .HasForeignKey(x => x.MosavebId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.TasvibStatusId);
             builder.HasOne(x => x.TasvibStatus)
                 .WithMany()
                 .HasForeignKey(x => x.TasvibStatusId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.TasvibReason);
             builder.Property(x => x.Description);
@@ -50,7 +50,7 @@ namespace MaktabTaha.Infrastructure.Mapping.tasvib
             builder.HasOne(x => x.ManagerTasvibStatus)
                 .WithMany()
                 .HasForeignKey(x => x.ManagerTasvibStatusId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

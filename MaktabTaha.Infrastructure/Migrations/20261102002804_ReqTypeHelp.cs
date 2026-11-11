@@ -30,7 +30,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 column: "RequestTypeId",
                 principalTable: "RequestType",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
@@ -56,7 +56,7 @@ namespace MaktabTaha.Infrastructure.Migrations
                 column: "CaseTypeId",
                 principalTable: "CaseType",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }

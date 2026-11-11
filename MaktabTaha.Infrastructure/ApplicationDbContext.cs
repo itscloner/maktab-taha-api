@@ -51,6 +51,7 @@ namespace MaktabTaha.Infrastructure
         public DbSet<CaseDonorHelps> CaseDonorHelps { get; set; }
         public DbSet<TasvibStatus> TasvibStatus { get; set; }
         public DbSet<ManagerTasvibStatus> ManagerTasvibStatus { get; set; }
+        public DbSet<OnvaniPage> OnvaniPage { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

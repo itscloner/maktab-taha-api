@@ -23,7 +23,7 @@ namespace MaktabTaha.Application.Features.tasvib.Command.Delete
             var operation = new OperationResult<bool>();
 
             var Tasvib = await _repository.FirstOrDefault(x => x.Id == request.Id);
-            if (Tasvib == null) return operation.Failure("تحقیق یافت نشد");
+            if (Tasvib == null) return operation.Failure("فرم تصویب یافت نشد");
 
             await _repository.Delete(Tasvib);
             return operation.Succedded(true);
